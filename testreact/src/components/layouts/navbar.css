@@ -1,6 +1,11 @@
-.bg-body-tertiary {
+.maruwind-navbar-title {
     font-family: 'Black Han Sans', sans-serif;
+    font-size: 50px !important;
+    position: relative;
+    margin-left: 0 !important;
 }
+
+
 
 .maruwind-navbar {
     font-family: "Jua", sans-serif;

@@ -9,9 +9,9 @@ return (
 <Navbar expand="lg" className="bg-body-tertiary">
     <Container>
         {/* 타이틀 */}
-        <Nav className="maruwind-navbar-title">
-            <Navbar.Brand href="#home">마루바람</Navbar.Brand>
-        </Nav>
+        <Navbar.Brand href="#home" className="maruwind-navbar-title">
+        마루바람
+        </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
