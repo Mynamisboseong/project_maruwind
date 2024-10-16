@@ -1,6 +1,8 @@
-import BrandExample from './components/layouts/brand.js';
-import BasicExample from './components/layouts/navbar.js';
-import UncontrolledExample from './components/layouts/carousels.js'
+import BrandExample from './components/layouts/icon_brand.js';
+import BasicExample from './components/layouts/menu-navbar.js';
+import UncontrolledExample from './components/layouts/carousels.js';
+import LogoBrandExample from './components/layouts/logo_brand.js';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -8,7 +10,8 @@ function App() {
   return (
     <div className="App">
       <>
-        <BrandExample/>
+        <BrandExample />
+        <LogoBrandExample/>
         <BasicExample/>
         <UncontrolledExample/>
       </>

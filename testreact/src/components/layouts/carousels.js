@@ -3,7 +3,7 @@ import './carousels.css'
 
     function UncontrolledExample() {
     return (
-        <Carousel style={{width: 'auto', height: '800px', overflow: 'hidden', backgroundColor: '#d4e3c8'}}>
+        <Carousel style={{width: 'auto', height: '800px', overflow: 'hidden', backgroundColor: '#000a0a'}}>
         <Carousel.Item style={{ height: '800px' }}>
             
             <img

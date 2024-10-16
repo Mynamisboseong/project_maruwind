@@ -1,0 +1,32 @@
+/* .maruwind-navbar-title {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 50px !important;
+    position: relative;
+    margin-left: 0 !important;
+} */
+
+
+
+/* 기존 클래스에 Flexbox 추가 */
+.maruwind-navbar {
+    font-family: "Jua", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px !important;
+    
+    /* Flexbox 설정 */
+    display: flex;
+    justify-content: center; /* 가운데 정렬 */
+    width: 100%; /* 전체 폭을 차지하도록 설정 */
+}
+
+/* 만약 Container에 Flexbox 적용이 필요하다면 */
+.container {
+    display: flex;
+    justify-content: center; /* 가운데 정렬 */
+}
+
+/* 드롭다운 메뉴 항목 폰트 크기 조정 */
+.dropdown-item {
+    font-size: 25px; /* 원하는 크기로 조정 */
+}

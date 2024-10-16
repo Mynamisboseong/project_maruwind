@@ -1,0 +1,6 @@
+.logo-brand-container {
+    display: flex;
+    justify-content: center !important; /* 가운데 정렬 */
+    align-items: center;     /* 수직 중앙 정렬 */
+    width: 100%;             /* 전체 너비 사용 */
+}

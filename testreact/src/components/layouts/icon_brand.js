@@ -1,12 +1,12 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-import './brand.css'; // 필요한 추가 스타일 정의
+import './icon_brand.css'; // 필요한 추가 스타일 정의
 
 function BrandExample() {
   return (
     <Navbar className="bg-body-tertiary">
       <Container fluid className="p-0"> {/* margin/padding을 제거하고 전체 너비 사용 */}
-        <div className="d-flex align-items-center logo-container">
+        <div className="d-flex align-items-center icon-container">
           {/* 홈페이지 로고 */}
           <Navbar.Brand href="http://localhost:3000/" className="me-3">
             <img

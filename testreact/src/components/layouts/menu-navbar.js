@@ -2,16 +2,16 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import './navbar.css';
+import './menu-navbar.css';
 
 function BasicExample() {
 return (
 <Navbar expand="lg" className="bg-body-tertiary">
     <Container>
-        {/* 타이틀 */}
+        {/* 타이틀
         <Navbar.Brand href="#home" className="maruwind-navbar-title">
         마루바람
-        </Navbar.Brand>
+        </Navbar.Brand> */}
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
