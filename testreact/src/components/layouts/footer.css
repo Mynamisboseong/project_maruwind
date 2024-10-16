@@ -1,0 +1,33 @@
+/* footer.css */
+.custom-card {
+    background-color: black !important; 
+    color: white !important;
+    text-align: center;
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Arial', sans-serif; /* 기본 글씨체 설정 */
+    margin: 0; /* 외부 여백 제거 */
+  }
+  
+  body {
+    background-color: black !important; /* 전체 배경색 검은색 */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .custom-card p {
+    font-size: 14px; /* 본문 글자 크기 */
+    margin-bottom: 10px; /* 문단 사이 여백 */
+  }
+  
+  .custom-card p:last-child {
+    font-weight: bold; /* 마지막 문단(약관/정책) 굵게 표시 */
+    font-size: 10px;
+  }
+
+  .custom-card .highlight {
+    font-size: 18px;  /* 글자 크기 키움 */
+    font-weight: bold; /* 굵게 표시 */
+    margin-bottom: 15px; /* 아래 여백 */
+  }
