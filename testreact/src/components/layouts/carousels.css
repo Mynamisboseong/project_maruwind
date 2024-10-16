@@ -1,7 +1,23 @@
+@font-face {
+    font-family: 'SoundWave'; /* 폰트 이름 설정 */
+    src: url('../../assets/fonts/SoundWave.ttf') format('truetype'); /* TTF 파일 경로 */
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 .custom-caption {
     color: white;
-    font-family: "Jua", sans-serif;
+    font-family: "Gowun Batang", sans-serif;
     font-size: 60px;
     text-align: center;
-    /* width: 100%; */
+}
+
+.different-font {
+    font-family: 'SoundWave', sans-serif;
+}
+
+.highlight {
+    color: #00acae;
+
 }

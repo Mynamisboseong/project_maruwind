@@ -8,16 +8,23 @@ import './carousels.css'
             
             <img
                     className="d-block w-100"
-                    src='/eco_slide_1.jpg'
+                    src='eco_slide_1.jpg'
                     alt="First slide"
-                    style={{ objectFit: 'contain', width: '100%', height: '100%' }}
+                    style={{
+                        objectFit: 'contain',
+                        width: '100%',
+                        height: '100%',
+                        opacity: 0.6
+                    }}
             />
 
-            <Carousel.Caption className="custom-caption">
-            <p>대한민국 환경보호 웹사이트 <br/>
-            마루바람에 오신것을 환영합니다.
+        <Carousel.Caption className="custom-caption">
+            <p>
+                대한민국 환경보호 웹사이트 <br />
+                <span className="different-font">마루<span className="highlight">바</span>람</span> 입니다
             </p>
-            </Carousel.Caption>
+        </Carousel.Caption>
+
 
         </Carousel.Item>
         <Carousel.Item style={{ height: '800px' }}>
