@@ -1,0 +1,36 @@
+.GraphExample {
+    background-color: #ffffff;
+}
+
+.graph_top_text {
+    padding-top: 100px;
+}
+
+.text-above-image {
+    background-color: #00acae;
+    font-family: Black Han Sans;
+    font-size: 50px;
+    display: inline-block;
+    margin-bottom: 20px; /* 텍스트와 이미지 사이의 간격 조정 */
+}
+
+.graph-image {
+    padding-top: 70px;
+    padding-bottom: 150px;
+    width: auto;
+    height: auto;
+    background-size: contain; /* 이미지 크기를 맞춤 */
+    background-repeat: no-repeat; /* 반복 없이 */
+}
+
+.text-indroduce-image {
+    font-family: Noto Sans, sans-serif;
+    font-size: 20px;
+    padding-bottom: 100px;
+}
+
+.graph_highlight {
+    color: #00acae;
+    font-family: Black Han Sans;
+    font-size: 40px;
+}

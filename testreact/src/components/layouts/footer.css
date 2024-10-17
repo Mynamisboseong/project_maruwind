@@ -10,7 +10,7 @@
     margin: 0; /* 외부 여백 제거 */
   }
   
-  body {
+  Card.body {
     background-color: black !important; /* 전체 배경색 검은색 */
     margin: 0;
     padding: 0;
