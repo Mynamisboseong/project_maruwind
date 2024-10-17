@@ -17,7 +17,7 @@
                 className="graph-image"
             />
 
-            <div className='text-indroduce-image'>
+            <div className='text-introduce-image'>
                 <span>환경부의 “2023년 환경보전에 관한 국민 의식 조사”에 따르면 <br></br>
                     2013년 <span className='graph_highlight'>91.8%</span>에서 2023년에는 <span className='graph_highlight'>75.6%</span>까지 계속해서 떨어지는 모습이 보입니다. </span>
             </div>
