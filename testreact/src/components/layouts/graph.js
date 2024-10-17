@@ -6,7 +6,7 @@
         <div className="graph_top_text">
         {/* 이미지 위에 표시할 텍스트 */}
             <div className="text-above-image">
-                <span> # 대한민국 국민들의 관심도는? </span>
+                <span> # 대한민국 국민들의 환경 관심도는? </span>
             </div>
             
             <br/>
