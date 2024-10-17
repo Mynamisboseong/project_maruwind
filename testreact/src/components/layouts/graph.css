@@ -7,9 +7,10 @@
 }
 
 .text-above-image {
-    background-color: #00acae;
+    /* background-color: #00acae; */
+    background-color: #ffffff;
     font-family: Black Han Sans;
-    font-size: 50px;
+    font-size: 100px;
     display: inline-block;
     margin-bottom: 20px; /* 텍스트와 이미지 사이의 간격 조정 */
 }
