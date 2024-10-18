@@ -29,14 +29,14 @@
                 <span>매년 늘어만가는 생활 폐기물...!</span>
             </div>
 
-            <div className='graphtrash_introduce_text'>
+            <div className='graphtrash_introduce_text_01'>
                 <span>
                     국민들의 환경보호 인식이 떨어져가고 있는 것을 증명하듯이 매년 생활폐기물의 양은 늘고있습니다. <br/>
-                    OECE 국가 중 <span className='graphtrash_highlight'>대한민국의 탄소 배출량 증가율은 1위</span>이며, <span className='graphtrash_highlight'>1인당 플라스틱 사용량은 세계 최대 수준</span>입니다. <br/>
-                    코로나 이후 플라스틱과 일회용품의 사용량이 급증하고 <br />
-                    쉽게 사용되고 쉽게 버려지는 쓰레기들은 대한민국의 환경을 위협합니다.
+                    OECE 국가 중 <span className='graphtrash_highlight'>대한민국의 탄소 배출량 증가율은 1위</span>이며, <span className='graphtrash_highlight'>1인당 플라스틱 사용량은 세계 최대 수준</span>입니다.
                 </span>
             </div>
+
+            
             
         </div>
     );

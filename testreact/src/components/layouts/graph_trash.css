@@ -17,7 +17,7 @@
 .graphtrash_point_text {
     font-family: Black Han sans;
     color: #00acae;
-    font-size: 50px;
+    font-size: 45px;
     display: inline-block;
     background-color: white;
     padding-left: 30px;
@@ -25,14 +25,18 @@
 }
 
 .graphtrash_img {
-    padding-bottom: 30px;
+    padding-bottom: 60px;
+    width: auto;
+    height: auto;
+    background-size: contain; /* 이미지 크기를 맞춤 */
+    background-repeat: no-repeat; /* 반복 없이 */
 }
 
-.graphtrash_introduce_text {
+.graphtrash_introduce_text_01 {
     font-family: Noto Sans;
     color: aliceblue;
     font-size: 27px;
-    padding-top: 70px;
+    padding-top: 10px;
 }
 
 .graphtrash_highlight {
