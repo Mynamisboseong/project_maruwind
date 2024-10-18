@@ -21,7 +21,7 @@ import './carousels.css'
         <Carousel.Caption className="custom-caption">
             <p>
                 대한민국 환경보호 웹사이트 <br />
-                <span className="different-font">마루<span className="highlight">바</span>람</span> 입니다
+                <span className="different-font">마루<span className="highlight">바</span>람</span>
             </p>
         </Carousel.Caption>
 

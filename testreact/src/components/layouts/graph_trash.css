@@ -1,0 +1,43 @@
+.graphtrash_overall {
+    background-color: black;
+}
+
+.graptrash_title_text {
+    font-family: Black Han sans;
+    font-size: 80px;
+    color:  #00acae;
+    padding-top: 120px;
+}
+
+.graphtrash_text_origin {
+    font-family: Noto Sans;
+    color: aliceblue;
+}
+
+.graphtrash_point_text {
+    font-family: Black Han sans;
+    color: #00acae;
+    font-size: 50px;
+    display: inline-block;
+    background-color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.graphtrash_img {
+    padding-bottom: 30px;
+}
+
+.graphtrash_introduce_text {
+    font-family: Noto Sans;
+    color: aliceblue;
+    font-size: 27px;
+    padding-top: 70px;
+}
+
+.graphtrash_highlight {
+    font-family: Noto Sans, sans-serif;
+    font-weight: 900;
+    color: #00acae;
+    font-size: 30px;
+}

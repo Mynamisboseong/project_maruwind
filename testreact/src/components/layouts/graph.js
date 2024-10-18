@@ -8,6 +8,10 @@
             <div className="text-above-image">
                 <span> # 대한민국 국민들의 환경 관심도는? </span>
             </div>
+
+            <div className='text_origin'>
+                <span>출처: 환경부 "환경보전에 관한 국민의식 조사"</span>
+            </div>
             
             <br/>
             {/* 이미지 */}

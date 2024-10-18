@@ -3,6 +3,7 @@ import BasicExample from './components/layouts/menu-navbar.js';
 import UncontrolledExample from './components/layouts/carousels.js';
 import LogoBrandExample from './components/layouts/logo_brand.js';
 import GraphExample from './components/layouts/graph.js'
+import GraphtrashExample from './components/layouts/graph_trash.js'
 import FooterExample from './components/layouts/footer.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,7 +17,8 @@ function App() {
         <LogoBrandExample/>
         <BasicExample/>
         <UncontrolledExample />
-        <GraphExample/>
+        <GraphExample />
+        <GraphtrashExample/>
         <FooterExample/>
       </>
     </div>
