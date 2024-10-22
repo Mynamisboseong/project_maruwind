@@ -4,6 +4,7 @@ import UncontrolledExample from './components/layouts/carousels.js';
 import LogoBrandExample from './components/layouts/logo_brand.js';
 import GraphExample from './components/layouts/graph.js'
 import GraphtrashExample from './components/layouts/graph_trash.js'
+import FluidExample from './components/layouts/Itsok_banner.js';
 import FooterExample from './components/layouts/footer.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,7 +19,8 @@ function App() {
         <BasicExample/>
         <UncontrolledExample />
         <GraphExample />
-        <GraphtrashExample/>
+        <GraphtrashExample />
+        <FluidExample/>
         <FooterExample/>
       </>
     </div>
