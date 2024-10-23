@@ -1,3 +1,7 @@
+.campaign-background {
+  background-color: black;
+}
+
 /* 제목 컨테이너 스타일 */
 .campaign-title-container {
   margin-bottom: 30px;
@@ -5,12 +9,12 @@
 
 /* 제목(h2) 스타일 */
 .campaign-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #2c3e50; /* 진한 회색 */
+  font-size: 80px;
+  font-family: Black han sans;
+  color: white; /* 진한 회색 */
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
-  margin-bottom: 20px;
+  padding-top: 35px;
 }
 
 /* 이미지 컨테이너 스타일 */
@@ -38,18 +42,18 @@
   margin-top: 30px;
 }
 
-/* 버튼 스타일 */
 .campaign-button {
-  background-color: #3498db;
-  border: none;
-  border-radius: 30px;
-  padding: 10px 30px;
-  font-size: 1.25rem;
-  color: white;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #00acae !important;
+  border: none !important;
+  border-radius: 30px !important;
+  padding: 10px 30px !important;
+  font-size: 25px !important;
+  font-family: Noto Sans !important;
+  color: white !important;
+  transition: background-color 0.3s ease, transform 0.2s ease !important;
 }
 
 .campaign-button:hover {
-  background-color: #2980b9;
-  transform: scale(1.05); /* 버튼 확대 효과 */
+  background-color: #007a8c !important; /* 마우스 오버 시 색상 변경 */
+  transform: scale(1.05) !important;
 }
