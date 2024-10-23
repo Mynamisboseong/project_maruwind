@@ -11,20 +11,39 @@ function ShapeExample() {
       <div className='campaign-background'>
         {/* 제목 컨테이너 */}
         <Container className="text-center-campaign-title-container">
-          <span className="campaign-title">이런 캠페인,공모전은 어떤가요?</span>
+          <span className="campaign-title">"이런 <span className='campaign-title-highlight'>공모전</span>이나 <span className='campaign-title-highlight'>캠페인</span>은 어떤가요?"</span>
+        </Container>
+
+        <Container className="text-center-campaign-subtext">
+          <span className='campaign-subtext'>국가와 기업, 많은 환경단체들이 대한민국 환경을 위해 공모전과 캠페인을 진행하고 있습니다</span>
         </Container>
 
         {/* 이미지 컨테이너 */}
         <Container className="campaign-image-container">
           <Row>
-            <Col xs={6} md={4}>
+            <Col xs={5} md={3}>
               <Image src="campaign1.png" className="campaign-image" rounded fluid />
             </Col>
-            <Col xs={6} md={4}>
+            <Col xs={5} md={3}>
               <Image src="campaign2.png" className="campaign-image" rounded fluid />
             </Col>
-            <Col xs={6} md={4}>
+            <Col xs={5} md={3}>
               <Image src="campaign3.png" className="campaign-image" rounded fluid />
+            </Col>
+            <Col xs={5} md={3}>
+              <Image src="campaign4.jpg" className="campaign-image" rounded fluid />
+            </Col>
+            <Col xs={5} md={3}>
+              <Image src="campaign5.jpg" className="campaign-image" rounded fluid />
+            </Col>
+            <Col xs={5} md={3}>
+              <Image src="campaign6.png" className="campaign-image" rounded fluid />
+            </Col>
+            <Col xs={5} md={3}>
+              <Image src="campaign7.jpg" className="campaign-image" rounded fluid />
+            </Col>
+            <Col xs={5} md={3}>
+              <Image src="campaign8.png" className="campaign-image" rounded fluid />
             </Col>
           </Row>
         </Container>
@@ -32,7 +51,10 @@ function ShapeExample() {
         {/* 버튼 컨테이너 */}
         <Container className="campaign-button-container">
           <Button className="campaign-button" size="lg">
-            공모전 캠페인 보러가기
+            공모전 보러가기
+          </Button>
+          <Button className="campaign-button" size="lg">
+            캠페인 보러가기
           </Button>
         </Container>
       </div>

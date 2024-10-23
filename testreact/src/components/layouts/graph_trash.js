@@ -36,6 +36,15 @@
                 </span>
             </div>
 
+            <div className='graphtrash_introduce_text_02'>
+                <span>
+                    이러한 상황은 우리 환경에 심각한 부담을 주고 있으며 <br />
+                    지속 가능한 미래를 위협하고 있습니다. <br />
+                    이제는 국민 개개인의 실천과 환경보호에 대한 인식 전환이 <br />
+                    절실히 필요합니다
+                </span>
+            </div>
+
             
             
         </div>
