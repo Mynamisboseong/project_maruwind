@@ -12,7 +12,7 @@
     font-family: Black Han Sans;
     font-size: 70px;
     display: inline-block;
-    margin-bottom: 20px; /* 텍스트와 이미지 사이의 간격 조정 */
+    margin-bottom: 5px; /* 텍스트와 이미지 사이의 간격 조정 */
 }
 
 .text_origin {

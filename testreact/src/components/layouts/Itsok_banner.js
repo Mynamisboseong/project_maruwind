@@ -1,5 +1,5 @@
 import Image from 'react-bootstrap/Image';
-import './itsok_banner.css'
+import './itsok_banner.css';
 
 function FluidExample() {
     return (
@@ -9,7 +9,7 @@ function FluidExample() {
             </div>
 
             <div className='itsok_banner_img'>
-                <Image src="black_tree.png" fluid style={{ width: '20%', height: 'auto' }}/>
+                <Image src="black_tree.png" className="responsive-image" fluid/>
             </div>
         </>
     );
