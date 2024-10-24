@@ -52,6 +52,7 @@
 /* 버튼 컨테이너 스타일 */
 .campaign-button-container {
   margin-top: 30px;
+  padding-bottom: 80px;
 }
 
 .campaign-button {

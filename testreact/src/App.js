@@ -6,6 +6,7 @@ import GraphExample from './components/layouts/graph.js'
 import GraphtrashExample from './components/layouts/graph_trash.js'
 import FluidExample from './components/layouts/Itsok_banner.js';
 import FooterExample from './components/layouts/footer.js';
+import ChallengeExample from './components/layouts/challenge.js';
 import ShapeExample from './components/layouts/campaign_images.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,7 +23,8 @@ function App() {
         <GraphExample />
         <GraphtrashExample />
         <FluidExample/>
-        <ShapeExample/>
+        <ShapeExample />
+        <ChallengeExample/>
         <FooterExample/>
       </>
     </div>
