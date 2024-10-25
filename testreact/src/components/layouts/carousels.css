@@ -5,12 +5,40 @@
     font-style: normal;
 }
 
+.carousel-container {
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    background-color: black;
+}
 
-.custom-caption {
+.carousel-item {
+    position: relative; 
+    height: 800px; 
+}
+
+.carousel-text {
+    position: absolute; /* 절대 위치 설정 */
+    top: 50%; /* 부모 요소의 50% 위치 */
+    left: 50%; /* 부모 요소의 50% 위치 */
+    transform: translate(-50%, -50%); /* 중앙 정렬을 위한 변환 */
+    color: white; /* 텍스트 색상 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    font-size: 24px; /* 텍스트 크기 조정 */
+    white-space: nowrap; /* 줄 바꿈 방지 */
+
+    /* 폰트 설정*/
     color: white;
     font-family: "Gowun Batang", sans-serif;
     font-size: 60px;
     text-align: center;
+}
+
+.carousel-item img {
+    object-fit: contain; /* 이미지 비율 유지 */
+    width: 100%; /* 이미지 너비 */
+    height: 100%; /* 이미지 높이 */
+    opacity: 0.8; /* 이미지 투명도 */
 }
 
 .different-font {
