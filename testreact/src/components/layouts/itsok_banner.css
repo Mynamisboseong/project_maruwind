@@ -10,6 +10,7 @@
     color: white;
     font-family: Black Han Sans;
 
+
     /*이미지 안에 텍스트 집어넣는 CSS코드*/
     position: absolute;
     top: 30%; /* 부모 요소의 50% 위치 */
