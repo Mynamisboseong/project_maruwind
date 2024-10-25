@@ -7,7 +7,7 @@ function UncontrolledExample() {
             <Carousel.Item className="carousel-item">
                 <img
                     className="carousel_slide01"
-                    src='eco_slide_01.jpg'
+                    src='/eco_slide/eco_slide_01.jpg'
                     alt="First slide"
                 />
                 <div className="carousel-text">
@@ -21,7 +21,7 @@ function UncontrolledExample() {
             <Carousel.Item className="carousel-item">
                 <img
                     className="carousel_slide02"
-                    src='eco_slide_02.jpg'
+                    src='/eco_slide/eco_slide_02.jpg'
                     alt="Second slide"
                 />
                 <div className="carousel-text">
@@ -32,7 +32,7 @@ function UncontrolledExample() {
             <Carousel.Item className="carousel-item">
                 <img
                     className="carousel_slide03"
-                    src='eco_slide_03.jpg'
+                    src='/eco_slide/eco_slide_03.jpg'
                     alt="Third slide"
                 />
                 <div className="carousel-text">

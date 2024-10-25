@@ -9,6 +9,7 @@ function ShapeExample() {
   return (
     <>
       <div className='campaign-background'>
+        
         {/* 제목 컨테이너 */}
         <Container className="text-center-campaign-title-container">
           <span className="campaign-title">"이런 <span className='campaign-title-highlight'>공모전</span>이나 <span className='campaign-title-highlight'>캠페인</span>은 어떤가요?"</span>
@@ -22,28 +23,28 @@ function ShapeExample() {
         <Container className="campaign-image-container">
           <Row>
             <Col xs={5} md={3}>
-              <Image src="campaign1.png" className="campaign-image" rounded fluid />
+              <Image src="/campaign_img/campaign1.png" className="campaign-image" rounded fluid />
             </Col>
             <Col xs={5} md={3}>
-              <Image src="campaign2.png" className="campaign-image" rounded fluid />
+              <Image src="/campaign_img/campaign2.png" className="campaign-image" rounded fluid />
             </Col>
             <Col xs={5} md={3}>
-              <Image src="campaign3.png" className="campaign-image" rounded fluid />
+              <Image src="/campaign_img/campaign3.png" className="campaign-image" rounded fluid />
             </Col>
             <Col xs={5} md={3}>
-              <Image src="campaign4.jpg" className="campaign-image" rounded fluid />
+              <Image src="/campaign_img/campaign4.jpg" className="campaign-image" rounded fluid />
             </Col>
             <Col xs={5} md={3}>
-              <Image src="campaign5.jpg" className="campaign-image" rounded fluid />
+              <Image src="/campaign_img/campaign5.jpg" className="campaign-image" rounded fluid />
             </Col>
             <Col xs={5} md={3}>
-              <Image src="campaign6.png" className="campaign-image" rounded fluid />
+              <Image src="/campaign_img/campaign6.png" className="campaign-image" rounded fluid />
             </Col>
             <Col xs={5} md={3}>
-              <Image src="campaign7.jpg" className="campaign-image" rounded fluid />
+              <Image src="/campaign_img/campaign7.jpg" className="campaign-image" rounded fluid />
             </Col>
             <Col xs={5} md={3}>
-              <Image src="campaign8.png" className="campaign-image" rounded fluid />
+              <Image src="/campaign_img/campaign8.png" className="campaign-image" rounded fluid />
             </Col>
           </Row>
         </Container>

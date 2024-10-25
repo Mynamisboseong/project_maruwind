@@ -9,7 +9,7 @@ function FluidExample() {
                     <div className='itsok_banner_text'>
                         <span>
                             "<span className='itsok_banner_text_hightlight'>대한민국 환경</span>,
-                            우리 모두의
+                            이제는 모두의
                             <span className='itsok_banner_text_hightlight'> 관심</span>
                             이 필요합니다!"
                         </span>
