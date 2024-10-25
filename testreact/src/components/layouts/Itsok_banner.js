@@ -5,12 +5,17 @@ function FluidExample() {
     return (
         <>
             <div className='itsok_banner_background'>
-                <div className='itsok_banner_text'>
-                    <span>"대한민국 환경, 우리 모두의 관심이 필요합니다.."</span>
-                </div>
-
                 <div className='itsok_banner_img'>
-                    <Image src="black_tree.png" className="responsive-image" fluid/>
+                    <div className='itsok_banner_text'>
+                        <span>
+                            "<span className='itsok_banner_text_hightlight'>대한민국 환경</span>,
+                            우리 모두의
+                            <span className='itsok_banner_text_hightlight'> 관심</span>
+                            이 필요합니다!"
+                        </span>
+                    </div>
+                    <Image src="eco_distroy.jpg" className="responsive-image" fluid
+                        style={{ width: 'auto', height: 'auto'}}/>
                 </div>
             </div>
         </>

@@ -22,7 +22,7 @@
 .graph-image {
     padding-top: 70px;
     padding-bottom: 50px;
-    width: 25%;
+    width: auto;
     height: auto;
     background-size: contain; /* 이미지 크기를 맞춤 */
     background-repeat: no-repeat; /* 반복 없이 */

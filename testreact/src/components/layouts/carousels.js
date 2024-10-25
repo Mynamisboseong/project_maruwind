@@ -8,13 +8,13 @@ import './carousels.css'
             
             <img
                     className="d-block w-100"
-                    src='eco_slide_1.jpg'
+                    src='eco_slide_01.jpg'
                     alt="First slide"
                     style={{
                         objectFit: 'contain',
                         width: '100%',
                         height: '100%',
-                        opacity: 0.6
+                        opacity: 0.8
                     }}
             />
 
@@ -31,7 +31,7 @@ import './carousels.css'
             
             <img
                     className="d-block w-100"
-                    src='/eco_slide_2.jpg'
+                    src='/eco_slide_02.jpg'
                     alt="Second slide"
                     style={{ objectFit: 'contain', width: '100%', height: '100%' }}
                 />
@@ -44,7 +44,7 @@ import './carousels.css'
             
             <img
                     className="d-block w-100"
-                    src='/eco_slide_3.jpg'
+                    src='/eco_slide_03(2).jpg'
                     alt="Third slide"
                     style={{ objectFit: 'contain', width: '100%', height: '100%' }}
                 />
