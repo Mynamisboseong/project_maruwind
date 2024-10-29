@@ -40,9 +40,6 @@ function App() {
 
           {/* 소개 페이지 */}
           <Route path="/introduce" element={<HomeIntroduce />} />
-
-          {/* 챌린지 페이지 */}
-          <Route path="/challenge" element={<ChallengeExample />} />
         </Routes>
 
         <FooterExample /> {/* 푸터는 모든 페이지에 표시 */}

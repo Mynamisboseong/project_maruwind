@@ -30,9 +30,7 @@ function BasicExample() {
             <Nav.Link href="#보류">뉴스/보도자료</Nav.Link>
 
             {/* SNS 챌린지 페이지로 이동 */}
-            <Nav.Link as={Link} to="/challenge">
-              SNS챌린지
-            </Nav.Link>
+            <Nav.Link href="#보류">SNS챌린지</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
