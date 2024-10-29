@@ -16,7 +16,7 @@ function HomeIntroduce() {
       {/* 그리드 섹션: 우리가 하는 일 */}
       <div className="content-container we-do">
         <h2 className="we-do-title">
-          마루바람은 지구의 목소리를 대신하기 위해 활동합니다.
+          마루바람은 지구의 목소리를 대신하기 위해 활동합니다
         </h2>
         <div className="mission-grid">
   <div className="mission-item">
