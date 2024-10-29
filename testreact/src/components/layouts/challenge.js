@@ -58,8 +58,8 @@ function ChallengeExample() {
                 </Row>
 
                 <div className='challenge_introduce'>
-                    <span className='challenge_introduce_hightlight'>음식 포장으로 발생하는 불필요한 쓰레기를 줄이자는 취지</span>에서 시작되었으며, <span className='challenge_introduce_hightlight'>'용기(courage)를 내서 용기(container) 내(in)'에 식재료나 음식을 포장해 오는 운동</span>입니다. <br />
-                    일상생활에서 음식 포장 시 비닐이나 플라스틱 대신 천 주머니나 다회용기 등에 음식, 식재료를 담아 온 사례를 SNS에 #용기내 챌린지 또는 #용기내 캠페인 등의 해시태그를 붙여 공유하는 챌린지 입니다. <br/>
+                    <span className='challenge_introduce_hightlight'>음식 포장으로 발생하는 불필요한 쓰레기를 줄이자는 취지</span>에서 시작되었으며 <br/>
+                    <span className='challenge_introduce_hightlight'>'용기(courage)를 내서 용기(container) 내(in)'에 식재료나 음식을 포장해 오는 운동</span>입니다. <br/>
                     이 챌린지는 배우 류준열씨와 그린피스가 지난해 4월  함께 시작해 많은 주목을 받기도 했습니다.
                 </div>
 
