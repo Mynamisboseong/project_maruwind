@@ -23,28 +23,28 @@ function ShapeExample() {
         <Container className="campaign-image-container">
           <Row>
             <Col xs={5} md={3}>
-              <Image src="/campaign_img/campaign1.png" className="campaign-image" rounded fluid />
+              <Image src="/campaign/campaign1.png" className="campaign-image" rounded fluid />
             </Col>
             <Col xs={5} md={3}>
-              <Image src="/campaign_img/campaign2.png" className="campaign-image" rounded fluid />
+              <Image src="/campaign/campaign2.png" className="campaign-image" rounded fluid />
             </Col>
             <Col xs={5} md={3}>
-              <Image src="/campaign_img/campaign3.png" className="campaign-image" rounded fluid />
+              <Image src="/campaign/campaign3.png" className="campaign-image" rounded fluid />
             </Col>
             <Col xs={5} md={3}>
-              <Image src="/campaign_img/campaign4.jpg" className="campaign-image" rounded fluid />
+              <Image src="/campaign/campaign4.jpg" className="campaign-image" rounded fluid />
             </Col>
             <Col xs={5} md={3}>
-              <Image src="/campaign_img/campaign5.jpg" className="campaign-image" rounded fluid />
+              <Image src="/campaign/campaign5.jpg" className="campaign-image" rounded fluid />
             </Col>
             <Col xs={5} md={3}>
-              <Image src="/campaign_img/campaign6.png" className="campaign-image" rounded fluid />
+              <Image src="/campaign/campaign6.png" className="campaign-image" rounded fluid />
             </Col>
             <Col xs={5} md={3}>
-              <Image src="/campaign_img/campaign7.jpg" className="campaign-image" rounded fluid />
+              <Image src="/campaign/campaign7.jpg" className="campaign-image" rounded fluid />
             </Col>
             <Col xs={5} md={3}>
-              <Image src="/campaign_img/campaign8.png" className="campaign-image" rounded fluid />
+              <Image src="/campaign/campaign8.png" className="campaign-image" rounded fluid />
             </Col>
           </Row>
         </Container>
