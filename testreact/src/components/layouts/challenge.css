@@ -1,0 +1,70 @@
+.challenge_section_bottom {
+    position: relative; /* 부모 요소에 relative positioning */
+}
+
+.button-overlay {
+    position: absolute; /* 절대 위치 지정 */
+    top: 80%; /* 세로 가운데 */
+    left: 50%; /* 가로 가운데 */
+    transform: translate(-50%, -50%); /* 가운데 정렬 */
+    display: flex; /* 버튼을 가로로 나란히 배치 */
+    gap: 10px; /* 버튼 사이의 간격 */
+}
+
+.challenge_title_text {
+    font-family: Black han Sans;
+    font-size: 70px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    padding-top: 70px;
+}
+
+.challenge_title_hightlight {
+    font-family: Black han Sans;
+    font-size: 90px;
+    color: #00acae;
+}
+
+.challenge_subtitle_text {
+    font-family: Noto Sans;
+    font-size: 20px;
+    padding-bottom: 100px;
+}
+
+.challenge_bottom {
+    padding-bottom: 40px;
+}
+
+.challeng_name_title_text {
+    font-family: Black Han sans;
+    color: white;
+    font-size: 45px;
+    display: inline-block;
+    background-color: #e23b6c;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.challeng_img {
+    padding-top: 30px;
+}
+
+.challenge_img_size {
+    width: 90%;
+    height: auto;
+}
+
+.challenge_introduce {
+    font-family: NotoSans;
+    font-size: 18px;
+    padding-top: 20px;
+    padding-bottom: 80px;
+}
+
+.challenge_introduce_hightlight {
+    font-family: NotoSans;
+    color: #00acae;
+    font-weight: 900;
+    font-size: 23px;
+
+}

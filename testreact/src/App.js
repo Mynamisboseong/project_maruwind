@@ -1,12 +1,13 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import BrandExample from './components/layouts/icon_brand.js';
 import BasicExample from './components/layouts/menu-navbar.js';
-import UncontrolledExample from './components/layouts/carousels.js';  // 메인 페이지
+import UncontrolledExample from './components/layouts/carousels.js';
 import LogoBrandExample from './components/layouts/logo_brand.js';
-import GraphExample from './components/layouts/graph.js';
-import GraphtrashExample from './components/layouts/graph_trash.js';
+import GraphExample from './components/layouts/graph.js'
+import GraphtrashExample from './components/layouts/graph_trash.js'
 import FluidExample from './components/layouts/Itsok_banner.js';
 import FooterExample from './components/layouts/footer.js';
+import ChallengeExample from './components/layouts/challenge.js';
 import ShapeExample from './components/layouts/campaign_images.js';
 import HomeIntroduce from './components/layouts/HomeIntroduce';
 
@@ -33,6 +34,7 @@ function App() {
                 <GraphtrashExample />
                 <FluidExample />
                 <ShapeExample />
+                <ChallengeExample/>
               </>
             }
           />
