@@ -41,7 +41,7 @@ function HomeIntroduce() {
         <h2 className="section-title">만든 사람들</h2>
         <div className="image-cards">
           <div className="card">
-            <img src="https://via.placeholder.com/300" alt="제작 인원 1" />
+            <img src="/createby/boseong.jpg" alt="제작 인원 1" />
             <p className="card-caption">강보성</p>
           </div>
           <div className="card">
