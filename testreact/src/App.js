@@ -3,11 +3,11 @@ import BrandExample from './components/layouts/icon_brand.js';
 import BasicExample from './components/layouts/menu-navbar.js';
 import UncontrolledExample from './components/layouts/carousels.js';
 import LogoBrandExample from './components/layouts/logo_brand.js';
-import GraphExample from './components/layouts/graph.js'
-import GraphtrashExample from './components/layouts/graph_trash.js'
+import GraphExample from './components/layouts/graph.js';
+import GraphtrashExample from './components/layouts/graph_trash.js';
 import FluidExample from './components/layouts/Itsok_banner.js';
 import FooterExample from './components/layouts/footer.js';
-import ChallengeExample from './components/layouts/challenge.js';
+import ChallengeExample from './components/layouts/challenge.js'; // 그대로 사용
 import ShapeExample from './components/layouts/campaign_images.js';
 import HomeIntroduce from './components/layouts/HomeIntroduce';
 
@@ -20,9 +20,8 @@ function App() {
       <div className="App">
         <BrandExample />
         <LogoBrandExample />
-        <BasicExample />  {/* 네비게이션 메뉴는 항상 표시 */}
+        <BasicExample /> {/* 네비게이션 메뉴는 항상 표시 */}
 
-        {/* Routes 내부에서 페이지별 콘텐츠 분기 */}
         <Routes>
           {/* 메인 페이지 */}
           <Route
@@ -34,13 +33,16 @@ function App() {
                 <GraphtrashExample />
                 <FluidExample />
                 <ShapeExample />
-                <ChallengeExample/>
+                <ChallengeExample />
               </>
             }
           />
 
           {/* 소개 페이지 */}
           <Route path="/introduce" element={<HomeIntroduce />} />
+
+          {/* 챌린지 페이지 */}
+          <Route path="/challenge" element={<ChallengeExample />} />
         </Routes>
 
         <FooterExample /> {/* 푸터는 모든 페이지에 표시 */}
