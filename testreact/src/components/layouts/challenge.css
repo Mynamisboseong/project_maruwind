@@ -1,5 +1,6 @@
 .challenge_section_bottom {
     position: relative; /* 부모 요소에 relative positioning */
+    margin-top: -50px; 
 }
 
 .button-overlay {
@@ -61,10 +62,25 @@
     padding-bottom: 200px;
 }
 
+.challenge_introduce_sectionbottom {
+    font-family: NotoSans;
+    font-size: 18px;
+    padding-top: 40px;
+    padding-bottom: 100px;
+}
+
 .challenge_introduce_hightlight {
     font-family: NotoSans;
     color: #00acae;
     font-weight: 900;
     font-size: 23px;
+}
 
+.button-overlay {
+    position: absolute;
+    top: 50%; /* 버튼 위치를 이미지 위쪽으로 이동 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 10px;
 }

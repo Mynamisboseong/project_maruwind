@@ -79,20 +79,23 @@ function ChallengeExample() {
                     </Col>
                 </Row>
 
-                <div className='challenge_introduce'>
-                    <span className='challenge_introduce_hightlight'>재활용품에 디자인 등을 입히는 방법으로, 가치를 높인 제품으로 재탄생 시키는 챌린지</span>입니다. <br />
+                <div className='challenge_introduce_sectionbottom'>
+                    <span className='challenge_introduce_hightlight'>
+                        재활용품에 디자인 등을 입히는 방법으로, 가치를 높인 제품으로 재탄생 시키는 챌린지
+                    </span>입니다. <br />
                     버려지는 제품을 단순히 재활용하는 데에서 그치는 것이 아닌, 매력적인 제품으로 탈바꿈 시키는 것입니다. 인테리어로도 많이 활용되고 있어 사람들의 이목을 끌고 있습니다
-                </div>
-                {/* 하단 섹션 */}
-                <div className='challenge_bottom_section' style={{ position: 'relative' }}>
-                    <Col xs={6} md={3}>
-                        <Image src="/challenge/challenge_section_bottom.png" rounded className='challenge_bottom'/>
-                        <div className='button-overlay'>
-                            <Button className="campaign-button" size="lg">
-                                SNS 챌린지 보러가기
-                            </Button>
-                        </div>
-                    </Col>
+    
+                    {/* 하단 섹션을 안쪽에 넣기 */}
+                    <div className='challenge_bottom_section' style={{ position: 'relative', marginTop: '20px' }}>
+                        <Col xs={6} md={3}>
+                            <Image src="/challenge/challenge_section_bottom.png" rounded className='challenge_bottom'/>
+                            <div className='button-overlay'>
+                                <Button className="campaign-button" size="lg">
+                                    SNS 챌린지 보러가기
+                                </Button>
+                            </div>
+                        </Col>
+                    </div>
                 </div>
             </div>
         </Container>
