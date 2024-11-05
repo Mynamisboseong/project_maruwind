@@ -6,7 +6,7 @@ function HomeIntroduce() {
       {/* 배너 섹션 */}
       <div className="banner">
         <img
-          src="/marubaram_introduce.jpg"
+          src="/marubaram_introduce_test.jpg"
           alt="소개 배너 이미지"
           className="banner-image"
         />
