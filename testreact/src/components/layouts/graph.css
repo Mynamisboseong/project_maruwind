@@ -1,3 +1,27 @@
+@keyframes fadeSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* 텍스트가 아래에서 시작 */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* 텍스트가 제자리로 이동 */
+    }
+}
+
+.text-above-image span {
+    display: inline-block;
+    animation: fadeSlideUp 1.5s ease-out; /* 애니메이션을 적용 */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.text-above-image.animate span {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .GraphExample {
     background-color: #ffffff;
 }
@@ -39,5 +63,7 @@
     font-family: Black Han Sans;
     font-size: 45px;
 }
+
+
 
 
