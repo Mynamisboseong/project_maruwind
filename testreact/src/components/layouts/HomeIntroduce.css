@@ -10,11 +10,7 @@
 .banner {
     position: relative;
     text-align: center;
-<<<<<<< HEAD
-    height: 500px;
-=======
     height: 30vh;
->>>>>>> f3dc4f6dce2dfe2d78ce48b584e614d918b2512e
     width: 100vw;
     overflow: hidden;
     margin: 0;

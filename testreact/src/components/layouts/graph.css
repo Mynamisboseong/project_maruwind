@@ -9,19 +9,6 @@
     }
 }
 
-.text-above-image span {
-    display: inline-block;
-    animation: fadeSlideUp 1.5s ease-out; /* 애니메이션을 적용 */
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease, transform 1s ease;
-}
-
-.text-above-image.animate span {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 .GraphExample {
     background-color: #ffffff;
 }
@@ -37,6 +24,15 @@
     font-size: 70px;
     display: inline-block;
     margin-bottom: 5px; /* 텍스트와 이미지 사이의 간격 조정 */
+
+    /*애니메이션*/
+    opacity: 0; /* 초기에는 텍스트가 보이지 않음 */
+    transform: translateY(20px); /* 아래에서 시작 */
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out; /* 애니메이션 */
+}
+
+.text-above-image.animate {
+    animation: fadeSlideUp 1.5s ease-out forwards; /* 애니메이션 추가 */
 }
 
 .text_origin {

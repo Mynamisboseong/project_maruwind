@@ -1,3 +1,14 @@
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* 아래에서 위로 이동 */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* 제자리로 돌아오기 */
+  }
+}
+
 .campaign-background {
   background-color: black;
 }
@@ -15,6 +26,15 @@
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
   padding-top: 70px;
+
+  /*애니메이션*/
+  opacity: 0; /* 처음에는 보이지 않게 설정 */
+  transform: translateY(20px); /* 아래에서 위로 이동 */
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out; /* 애니메이션 효과 */
+}
+
+.campaign-title.animate {
+  animation: fadeSlideUp 1.5s ease-out forwards; /* 화면에 보일 때 애니메이션 시작 */
 }
 
 /* 제목 강조부분 색상 하이라이트 */

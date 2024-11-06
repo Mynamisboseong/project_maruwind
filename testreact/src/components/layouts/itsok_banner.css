@@ -1,3 +1,14 @@
+@keyframes fadeSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* 아래에서 위로 올라오는 효과 */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* 제자리로 이동 */
+    }
+}
+
 .itsok_banner_background {
     background-color: black;
 }
@@ -5,23 +16,29 @@
 .itsok_banner_img {
     position: relative;
 }
+
 .itsok_banner_text {
     font-size: 75px;
     color: white;
-    font-family: Black Han Sans;
-
-
-    /*이미지 안에 텍스트 집어넣는 CSS코드*/
+    font-family: 'Black Han Sans';
     position: absolute;
-    top: 30%; /* 부모 요소의 50% 위치 */
-    left: 50%; /* 부모 요소의 50% 위치 */
-    transform: translate(-50%, -50%); /* 중앙 정렬을 위한 변환 */
-    text-align: center; /* 텍스트 중앙 정렬 */
+    top: 30%;
+    left: 18%;
+    transform: translate(-50%, -50%);
+    text-align: center;
     white-space: nowrap;
+    display: inline-block;
+    opacity: 0; /* 초기에는 보이지 않게 */
+    transform: translateY(20px); /* 애니메이션을 위해 아래에서 시작 */
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out; /* 애니메이션 설정 */
+}
+
+.itsok_banner_text.animate {
+    animation: fadeSlideUp 1.5s ease-out forwards; /* 애니메이션을 추가 */
 }
 
 .itsok_banner_text_hightlight {
     font-size: 90px;
     color: #00acae;
-    font-family: Black Han Sans;
+    font-family: 'Black Han Sans';
 }

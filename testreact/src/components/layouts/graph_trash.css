@@ -1,21 +1,40 @@
+@keyframes fadeSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* 아래에서 위로 올라오는 효과 */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* 제자리로 이동 */
+    }
+}
+
 .graphtrash_overall {
     background-color: black;
+    padding: 50px; /* 필요한 패딩 추가 */
 }
 
 .graptrash_title_text {
-    font-family: Black Han sans;
+    font-family: 'Black Han Sans', sans-serif;
     font-size: 80px;
-    color:  #00acae;
+    color: #00acae;
     padding-top: 40px;
+    opacity: 0; /* 애니메이션 시작 전에는 보이지 않음 */
+    transform: translateY(20px); /* 아래에서 시작 */
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out; /* 애니메이션 */
+}
+
+.graptrash_title_text.animate {
+    animation: fadeSlideUp 1.5s ease-out forwards; /* 애니메이션 추가 */
 }
 
 .graphtrash_text_origin {
-    font-family: Noto Sans;
+    font-family: 'Noto Sans', sans-serif;
     color: aliceblue;
 }
 
 .graphtrash_point_text {
-    font-family: Black Han sans;
+    font-family: 'Black Han Sans', sans-serif;
     color: #00acae;
     font-size: 45px;
     display: inline-block;
@@ -28,28 +47,19 @@
     padding-bottom: 60px;
     width: auto;
     height: auto;
-    background-size: contain; /* 이미지 크기를 맞춤 */
-    background-repeat: no-repeat; /* 반복 없이 */
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
-.graphtrash_introduce_text_01 {
-    font-family: Noto Sans;
-    color: aliceblue;
-    font-size: 27px;
-    padding-top: 10px;
-    padding-bottom: 100px;
-}
-
+.graphtrash_introduce_text_01,
 .graphtrash_introduce_text_02 {
-    font-family: Noto Sans;
+    font-family: 'Noto Sans', sans-serif;
     color: aliceblue;
     font-size: 27px;
     padding-top: 10px;
-    padding-bottom: 40px;
 }
 
 .graphtrash_highlight {
-    font-family: Noto Sans, sans-serif;
     font-weight: 900;
     color: #00acae;
     font-size: 30px;

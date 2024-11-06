@@ -1,11 +1,45 @@
-    import React from 'react';
-    import './graph_trash.css'; // 스타일 파일
+import React, { useEffect, useRef, useState } from 'react';
+import './graph_trash.css'; // 스타일 파일
 
-    function GraphtrashExample() {
+function GraphtrashExample() {
+    const overallRef = useRef(null); // graphtrash_overall 참조
+    const [isVisible, setIsVisible] = useState(false); // 애니메이션 상태
+
+    useEffect(() => {
+        // IntersectionObserver 옵션 설정
+        const observerOptions = {
+            root: null, // 뷰포트를 기준으로
+            threshold: 0.3, // 요소가 40% 이상 보일 때
+        };
+
+        // IntersectionObserver 설정
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true); // 요소가 40% 이상 보이면 애니메이션 실행
+                } else {
+                    setIsVisible(false); // 요소가 뷰포트 밖으로 나가면 애니메이션 취소
+                }
+            });
+        }, observerOptions);
+
+        // observer로 overallRef 요소 관찰 시작
+        if (overallRef.current) {
+            observer.observe(overallRef.current);
+        }
+
+        // 컴포넌트가 unmount 될 때 observer 해제
+        return () => {
+            if (overallRef.current) {
+                observer.unobserve(overallRef.current);
+            }
+        };
+    }, []);
+
     return (
-        <div className="graphtrash_overall">
-        {/* 이미지 위에 표시할 텍스트 */}
-            <div className="graptrash_title_text">
+        <div className="graphtrash_overall" ref={overallRef}>
+            {/* 이미지 위에 표시할 텍스트 */}
+            <div className={`graptrash_title_text ${isVisible ? 'animate' : ''}`}>
                 <span>하루 평균 생활폐기물 발생량</span>
             </div>
 
@@ -44,11 +78,8 @@
                     절실히 필요합니다
                 </span>
             </div>
-
-            
-            
         </div>
     );
-    }
+}
 
-    export default GraphtrashExample;
+export default GraphtrashExample;
