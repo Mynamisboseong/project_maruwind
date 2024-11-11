@@ -1,4 +1,3 @@
-/* components/layouts/NoticeDetail.css */
 .notice-detail {
     padding: 2rem;
     font-family: Arial, sans-serif;
@@ -75,3 +74,9 @@
 .notice-navigation button:hover {
     background-color: #555;
 }
+
+.notice-images img {
+    max-width: 100%;  /* 기본적으로 이미지는 100%로 설정 */
+    height: auto;
+  }
+

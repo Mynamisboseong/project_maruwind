@@ -13,8 +13,8 @@
 }
 
 .carousel-item {
-    position: relative;
-    height: 800px;
+    position: relative; 
+    height: 800px; 
 }
 
 .carousel-text {
@@ -29,26 +29,16 @@
 
     /* 폰트 설정*/
     color: white;
-    font-family: 'Gowun Batang', sans-serif;
+    font-family: "Gowun Batang", sans-serif;
     font-size: 60px;
     text-align: center;
 }
 
-.carousel-contest-text {
-    position: absolute; /* 절대 위치 설정 */
-    top: 20%; /* 부모 요소의 50% 위치 */
-    left: 50%; /* 부모 요소의 50% 위치 */
-    transform: translate(-50%, -50%); /* 중앙 정렬을 위한 변환 */
-    color: white;
-    font-family: 'Noto Sans';
-    font-weight: 900;
-    font-size: 40px;
-    text-align: top;
-}
 .carousel-item img {
     object-fit: contain; /* 이미지 비율 유지 */
     width: 100%; /* 이미지 너비 */
     height: 100%; /* 이미지 높이 */
+    opacity: 0.8; /* 이미지 투명도 */
 }
 
 .different-font {
@@ -57,26 +47,4 @@
 
 .highlight {
     color: #00acae;
-}
-
-.contest-hightlight {
-    color: #00acae;
-    font-size: 65px;
-}
-
-.carousel-button {
-    position: absolute; /* 절대 위치 설정 */
-    top: 87%; /* 부모 요소의 50% 위치 */
-    left: 50%; /* 부모 요소의 50% 위치 */
-    transform: translate(-50%, -50%); /* 중앙 정렬을 위한 변환 */
-
-    margin: 15px; /*버튼사이의 공백*/
-    background-color: #00acae !important;
-    border: none !important;
-    border-radius: 30px !important;
-    padding: 10px 30px !important;
-    font-size: 25px !important;
-    font-family: Noto Sans !important;
-    color: white !important;
-    transition: background-color 0.3s ease, transform 0.2s ease !important;
 }
