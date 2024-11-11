@@ -37,19 +37,28 @@ function UncontrolledExample() {
                     </p>
                 </div>
                 <Button className="carousel-button" size="lg">
-                            공모전 보러가기
+                    공모전 보러가기
                 </Button>
             </Carousel.Item>
 
             <Carousel.Item className="carousel-item">
                 <img
                     className="carousel_slide03"
-                    src="/eco_slide/eco_slide_03.jpg"
+                    src="/eco_slide/eco_slide_03.png"
                     alt="Third slide"
                 />
-                <div className="carousel-text">
-                    <p>마루바람 세번째 슬라이드 입니다.</p>
+                <div className="carousel-challenge-text">
+                    <p>
+                        유행중인{' '}
+                        <span className="contest-hightlight">
+                            환경보호 챌린지
+                        </span>
+                        도 확인해보세요!
+                    </p>
                 </div>
+                <Button className="carousel-button" size="lg">
+                    챌린지 보러가기
+                </Button>
             </Carousel.Item>
         </Carousel>
     )

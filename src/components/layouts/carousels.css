@@ -49,6 +49,18 @@
     font-size: 40px;
     text-align: top;
 }
+
+.carousel-challenge-text {
+    position: absolute; /* 절대 위치 설정 */
+    top: 20%; /* 부모 요소의 50% 위치 */
+    left: 50%; /* 부모 요소의 50% 위치 */
+    transform: translate(-50%, -50%); /* 중앙 정렬을 위한 변환 */
+    color: white;
+    font-family: 'Noto Sans';
+    font-weight: 900;
+    font-size: 40px;
+    text-align: top;
+}
 .carousel-item img {
     object-fit: contain; /* 이미지 비율 유지 */
     width: 100%; /* 이미지 너비 */
