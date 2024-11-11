@@ -6,7 +6,7 @@
     return (
         <Navbar className="bg-body-tertiary">
         <Container className="logo-brand-container">
-            <Navbar.Brand href="#home">
+            <Navbar.Brand href="/">
             <img
                 src="/maruwind_logo(3).png"
                 className="logo-image"  // 새로운 클래스 추가

@@ -17,7 +17,7 @@ function BasicExample() {
               <NavDropdown.Item as={Link} to="/introduce">
                 홈페이지 소개
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">공지사항</NavDropdown.Item>
+              <NavDropdown.Item as={Link} to="/notice">공지사항</NavDropdown.Item>
             </NavDropdown>
 
             {/* 외부행사 드롭다운 */}

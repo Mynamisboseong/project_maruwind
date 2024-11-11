@@ -10,6 +10,8 @@ import FooterExample from './components/layouts/footer.js';
 import ChallengeExample from './components/layouts/challenge.js'; // 그대로 사용
 import ShapeExample from './components/layouts/campaign_images.js';
 import HomeIntroduce from './components/layouts/HomeIntroduce';
+import Notice from './components/layouts/notice.js';
+import NoticeDetail from './components/layouts/notice_detail.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -40,7 +42,12 @@ function App() {
 
           {/* 소개 페이지 */}
           <Route path="/introduce" element={<HomeIntroduce />} />
+          <Route path="/notice" element={<Notice />} /> 
+          <Route path="/notice/:id" element={<NoticeDetail />} />
         </Routes>
+
+        
+        
 
         <FooterExample /> {/* 푸터는 모든 페이지에 표시 */}
       </div>
