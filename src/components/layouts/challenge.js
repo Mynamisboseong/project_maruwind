@@ -144,7 +144,14 @@ function ChallengeExample() {
                             className="challenge_bottom"
                         />
                         <div className="button-overlay">
-                            <Button className="campaign-button" size="lg">
+                            <Button
+                                className="campaign-button"
+                                size="lg"
+                                onClick={() =>
+                                    (window.location.href =
+                                        'https://www.instagram.com/explore/tags/줍깅챌린지/')
+                                }
+                            >
                                 SNS 챌린지 보러가기
                             </Button>
                         </div>
