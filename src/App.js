@@ -12,6 +12,7 @@ import ShapeExample from './components/layouts/campaign_images.js';
 import HomeIntroduce from './components/layouts/HomeIntroduce';
 import Notice from './components/layouts/notice.js';
 import NoticeDetail from './components/layouts/notice_detail.js';
+import NewsPage from './components/layouts/pages/news.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -40,10 +41,13 @@ function App() {
         />
 
         {/* 공모전 페이지 */}
-        
+
+        {/* 뉴스/보도자료 페이지 */}
+        <Route path="/news" element={<NewsPage/>} />
+
 
         {/* 소개 페이지 */}
-        <Route path="/introduce" element={<HomeIntroduce />} />
+        <Route path="/introduce" element={<HomeIntroduce/>} />
         <Route path="/notice" element={<Notice />} /> 
         <Route path="/notice/:id" element={<NoticeDetail />} />
       </Routes>
