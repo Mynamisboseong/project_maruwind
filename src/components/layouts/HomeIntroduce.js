@@ -40,8 +40,8 @@ function HomeIntroduce() {
       className="mission-image"
     />
     <p>
-      마루바람은 정부, 기업 혹은 정당으로부터 어떠한 후원도 받지 않으며, 
-      오로지 개인 및 독립재단의 후원으로만 운영됩니다.
+      마루바람은 정부, 기업, 독립재단 혹은 정당으로부터 어떠한 후원도 받지 않으며, 
+      오로지 개인의 자금으로만 운영됩니다.
     </p>
   </div>
 
@@ -86,7 +86,7 @@ function HomeIntroduce() {
           </div>
           <div className="card">
             <div className="img-wrapper">
-              <img src="https://via.placeholder.com/300" alt="제작 인원 2" />
+              <img src="/createby/jongs.jpg" alt="제작 인원 2" />
             </div>
             <p className="card-caption">박종승</p>
           </div>
