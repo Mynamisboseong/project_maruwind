@@ -27,7 +27,7 @@ function BasicExample() {
                             <NavDropdown.Item href="#action/3.1">
                                 캠페인
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">
+                            <NavDropdown.Item as={Link} to="/constest">
                                 공모전
                             </NavDropdown.Item>
                         </NavDropdown>
