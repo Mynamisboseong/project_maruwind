@@ -33,19 +33,18 @@ function HomeIntroduce() {
                         </p>
                     </div>
 
-                    <div className="mission-item">
-                        <h3>독립성</h3>
-                        <img
-                            src="/independence.png"
-                            alt="독립성 이미지"
-                            className="mission-image"
-                        />
-                        <p>
-                            마루바람은 정부, 기업 혹은 정당으로부터 어떠한
-                            후원도 받지 않으며, 오로지 개인 및 독립재단의
-                            후원으로만 운영됩니다.
-                        </p>
-                    </div>
+  <div className="mission-item">
+    <h3>독립성</h3>
+    <img
+      src="/independence.png"
+      alt="독립성 이미지"
+      className="mission-image"
+    />
+    <p>
+      마루바람은 정부, 기업, 독립재단 혹은 정당으로부터 어떠한 후원도 받지 않으며, 
+      오로지 개인의 자금으로만 운영됩니다.
+    </p>
+  </div>
 
                     <div className="mission-item">
                         <h3>글로벌</h3>
@@ -77,32 +76,26 @@ function HomeIntroduce() {
                 </div>
             </div>
 
-            {/* 이미지 카드 섹션 */}
-            <div className="content-container creators">
-                <h2 className="section-title">만든 사람들</h2>
-                <div className="image-cards">
-                    <div className="card">
-                        <div className="img-wrapper">
-                            <img
-                                src="/createby/boseong.jpg"
-                                alt="제작 인원 1"
-                            />
-                        </div>
-                        <p className="card-caption">강보성</p>
-                    </div>
-                    <div className="card">
-                        <div className="img-wrapper">
-                            <img
-                                src="https://via.placeholder.com/300"
-                                alt="제작 인원 2"
-                            />
-                        </div>
-                        <p className="card-caption">박종승</p>
-                    </div>
-                </div>
+      {/* 이미지 카드 섹션 */}
+      <div className="content-container creators">
+        <h2 className="section-title">만든 사람들</h2>
+        <div className="image-cards">
+          <div className="card">
+            <div className="img-wrapper">
+              <img src="/createby/boseong.jpg" alt="제작 인원 1" />
             </div>
+            <p className="card-caption">강보성</p>
+          </div>
+          <div className="card">
+            <div className="img-wrapper">
+              <img src="/createby/jongs.jpg" alt="제작 인원 2" />
+            </div>
+            <p className="card-caption">박종승</p>
+          </div>
         </div>
-    )
+      </div>
+    </div>
+  );
 }
 
 export default HomeIntroduce
