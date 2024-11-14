@@ -1,6 +1,9 @@
 import React from 'react';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button' // 버튼 컴포넌트 추가
+import Carousel from 'react-bootstrap/Carousel';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFire } from '@fortawesome/free-solid-svg-icons'; // faFire 아이콘 가져오기
 import './news.css'; // 스타일을 외부 CSS 파일로 관리할 경우 사용
 
 function NewsPage() {
@@ -27,12 +30,39 @@ function NewsPage() {
                             >
                                 환경부 공식유튜브 바로가기
                             </Button>
-                </div>
+                    </div>
                 </div>
             </div>
 
-            <div className='hi'>
-                    ㅎㅇ
+            <div className="trand_news">
+                최신 뜨거운 뉴스예요! 
+                <FontAwesomeIcon icon={faFire} style={{ color: "#ff0000" }} />
+            </div>
+
+            <div className="carousel-container">
+                <Carousel>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src="/path/to/your/image1.jpg"
+                            alt="첫 번째 슬라이드"
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src="/path/to/your/image2.jpg"
+                            alt="두 번째 슬라이드"
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src="/path/to/your/image3.jpg"
+                            alt="세 번째 슬라이드"
+                        />
+                    </Carousel.Item>
+                </Carousel>
             </div>
         </>
     );
