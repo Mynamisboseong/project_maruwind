@@ -1,0 +1,50 @@
+.banner-container {
+    position: relative;
+    display: flex;
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    flex-direction: column; /* 텍스트와 이미지를 세로로 배치 */
+    background-color: black;
+}
+
+.banner_image {
+    max-width: 100%;
+    height: auto;
+    padding-left: 25%;
+}
+
+.news_banner_text {
+    position: absolute; /* 이미지 위에 텍스트 겹치기 */
+    color: white;
+    font-family: Noto Sans;
+    font-weight: 800;
+    font-size: 35px;
+    padding: 10px;
+    padding-right: 15%;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.newbanner_title_hightlight {
+    font-size: 45px;
+    color: #00acae;
+}
+
+.newsbanner_subtext {
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.news_button_overay {
+    padding-top: 20px;
+}
+
+.news_button {
+    background-color: #00acae !important;
+    border: none !important;
+    border-radius: 20px !important;
+    padding: 10px 15px !important;
+    font-size: 23px !important;
+    font-family: Noto Sans !important;
+    color: white !important;
+}
