@@ -39,7 +39,7 @@ function NewsPage() {
                 <FontAwesomeIcon icon={faFire} style={{ color: "#ff0000" }} />
             </div>
 
-            <div className="carousel-container">
+            <div className="news_carousel_container">
                 <Carousel>
                     <Carousel.Item>
                         <img
