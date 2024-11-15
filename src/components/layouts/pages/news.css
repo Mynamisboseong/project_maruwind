@@ -51,19 +51,27 @@
 
 .trand_news {
     font-family: Noto Sans;
-    font-weight: 800;
-    font-size: 30px;
+    font-weight: 900;
+    font-size: 40px;
     color: black;
+    padding-top: 40px;
+    padding-bottom: 5px;
 
 }
 
 .news_carousel_container {
-    max-width: 600px; /* Carousel의 최대 너비 설정 */
-    max-height: 300px;
+    max-width: 1400px; /* Carousel의 최대 너비 */
+    max-height: 700px; /* Carousel의 최대 높이 */
     margin: 0 auto; /* 중앙 정렬 */
+    overflow: hidden; /* 부모 요소를 넘어가는 내용 숨기기 */
 }
 
-.news_carousel_container img {
-    width: 100%; /* 이미지가 Carousel 너비에 맞춰지도록 설정 */
-    height: auto; /* 이미지 비율 유지 */
+.news_carousel_container .carousel-item {
+    width: 100%; /* 슬라이드 너비 100% */
+    height: 700px; /* 슬라이드 높이를 명시적으로 300px로 설정 */
+}
+
+.news_carousel_container iframe {
+    width: 100%; /* 부모 요소의 너비에 맞춤 */
+    height: 100%; /* 부모 요소의 높이에 맞춤 */
 }

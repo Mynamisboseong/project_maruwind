@@ -1,10 +1,10 @@
 import React from 'react';
 import Image from 'react-bootstrap/Image';
-import Button from 'react-bootstrap/Button' // 버튼 컴포넌트 추가
+import Button from 'react-bootstrap/Button';
 import Carousel from 'react-bootstrap/Carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFire } from '@fortawesome/free-solid-svg-icons'; // faFire 아이콘 가져오기
-import './news.css'; // 스타일을 외부 CSS 파일로 관리할 경우 사용
+import { faFire } from '@fortawesome/free-solid-svg-icons';
+import './news.css';
 
 function NewsPage() {
     return (
@@ -21,15 +21,14 @@ function NewsPage() {
                     </span>
                     <div className='news_button_overay'>
                     <Button
-                                className="news_button"
-                                size="lg"
-                                onClick={() =>
-                                    (window.location.href =
-                                        'https://www.youtube.com/@mevpr/videos')
-                                }
-                            >
-                                환경부 공식유튜브 바로가기
-                            </Button>
+                        className="news_button"
+                        size="lg"
+                        onClick={() =>
+                            (window.location.href = 'https://www.youtube.com/@mevpr/videos')
+                        }
+                    >
+                        환경부 공식유튜브 바로가기
+                    </Button>
                     </div>
                 </div>
             </div>
@@ -42,25 +41,31 @@ function NewsPage() {
             <div className="news_carousel_container">
                 <Carousel>
                     <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src="/path/to/your/image1.jpg"
-                            alt="첫 번째 슬라이드"
-                        />
+                        <iframe
+                            className="carousel-video"
+                            src="https://www.youtube.com/embed/zBnsMlX0NYQ?si=5Ku9tpAm4jmQHkI0"
+                            title="첫 번째 슬라이드 동영상"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src="/path/to/your/image2.jpg"
-                            alt="두 번째 슬라이드"
-                        />
+                        <iframe
+                            className="carousel-video"
+                            src="https://www.youtube.com/embed/2uauzR_egaU?si=6okLOl2jbATz53ud"
+                            title="두 번째 슬라이드 동영상"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src="/path/to/your/image3.jpg"
-                            alt="세 번째 슬라이드"
-                        />
+                        <iframe
+                            className="carousel-video"
+                            src="https://www.youtube.com/embed/5IU5rsSzl0o?si=5E2r8q6S0OxCOlXS"
+                            title="세 번째 슬라이드 동영상"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
                     </Carousel.Item>
                 </Carousel>
             </div>
