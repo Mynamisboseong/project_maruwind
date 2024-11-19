@@ -1,10 +1,17 @@
+.white_line {
+    padding-top: 50px;
+    background-color: #f8f9fa
+    ;
+}
+
 .banner-container {
     position: relative;
     display: flex;
     justify-content: center; /* 가로 중앙 정렬 */
     align-items: center; /* 세로 중앙 정렬 */
     flex-direction: column; /* 텍스트와 이미지를 세로로 배치 */
-    background-color: black;
+    background-color: #033075
+    ;
 }
 
 .banner_image {
@@ -70,8 +77,8 @@
     font-weight: 900;
     font-size: 60px;
     color: black;
-    padding-top: 70px;
-    padding-bottom: 20px;
+    padding-top: 120px;
+    padding-bottom: 50px;
 }
 
 .list_news {
@@ -79,7 +86,7 @@
     font-weight: 900;
     font-size: 60px;
     color: black;
-    padding-top: 130px;
+    padding-top: 300px;
     padding-bottom: 10px;
 }
 
