@@ -59,7 +59,6 @@ const newsData = [
 ];
 
 function NewsPage() {
-    const navigate = useNavigate();
     return (
         <>
             <div className="banner-container">
@@ -87,9 +86,13 @@ function NewsPage() {
             </div>
 
             <div className="trand_news">
-                최신 뜨거운 뉴스예요! 
-                <FontAwesomeIcon icon={faFire} style={{ color: "#ff0000" }} />
+                <FontAwesomeIcon icon={faFire} className="fa-beat-fade" style={{ color: "#e00000" }} />
+                    <span className="trand_news_title">
+                        최근 뜨거운 뉴스를 확인하세요
+                    </span>
+                <FontAwesomeIcon icon={faFire} className="fa-beat-fade" style={{ color: "#e00000" }} />
             </div>
+
 
             <div className="news_carousel_container">
                 <Carousel>
@@ -124,8 +127,9 @@ function NewsPage() {
             </div>
 
             <div className="list_news">
-                그 밖의 보도자료는 이곳에서!
-                <FontAwesomeIcon icon={faDownLong} bounce />
+                <FontAwesomeIcon icon={faDownLong} style={{ color: "#00acae" }}bounce />
+                    <span className="list_news_title">다른 보도자료는 이곳에!</span>
+                <FontAwesomeIcon icon={faDownLong} style={{ color: "#00acae" }}bounce />
             </div>
 
             {/* 보도자료 리스트 */}

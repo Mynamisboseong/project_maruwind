@@ -54,8 +54,8 @@
     font-weight: 900;
     font-size: 60px;
     color: black;
-    padding-top: 40px;
-    padding-bottom: 5px;
+    padding-top: 70px;
+    padding-bottom: 20px;
 }
 
 .list_news {
@@ -84,6 +84,15 @@
     height: 100%; /* 부모 요소의 높이에 맞춤 */
 }
 
+.list_news_title {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.trand_news_title {
+    padding-left: 30px;
+    padding-right: 30px;
+}
 
 /* 리스트 */
 .news-list {
@@ -134,4 +143,33 @@
     max-height: 150px;;
     height: auto; /* 비율 유지 */
     margin-left: 150px; /* 텍스트와 이미지 간 간격 */
+}
+
+/* 폰트어썸 수동 애니메이션 */
+.fa-bounce {
+    animation: bounce 0.7s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+    transform: translateY(1);
+}
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.fa-beat-fade {
+    animation: beatFade 1s infinite;
+}
+
+@keyframes beatFade {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
 }
