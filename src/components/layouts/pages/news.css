@@ -52,7 +52,7 @@
 .trand_news {
     font-family: Noto Sans;
     font-weight: 900;
-    font-size: 40px;
+    font-size: 60px;
     color: black;
     padding-top: 40px;
     padding-bottom: 5px;
@@ -61,14 +61,14 @@
 .list_news {
     font-family: Noto Sans;
     font-weight: 900;
-    font-size: 40px;
+    font-size: 60px;
     color: black;
     padding-top: 130px;
     padding-bottom: 10px;
 }
 
 .news_carousel_container {
-    max-width: 1400px; /* Carousel의 최대 너비 */
+    max-width: 2000px; /* Carousel의 최대 너비 */
     max-height: 700px; /* Carousel의 최대 높이 */
     margin: 0 auto; /* 중앙 정렬 */
     overflow: hidden; /* 부모 요소를 넘어가는 내용 숨기기 */
@@ -87,15 +87,26 @@
 
 /* 리스트 */
 .news-list {
-    width: 1400px; /* 전체 리스트 너비 */
+    width: 1500px; /* 전체 리스트 너비 */
     margin: 20px auto;
     padding: 20px;
     border-top: 1px solid #ccc;
+    text-align: left;
 }
 
 .news-item {
+    display: flex;
     padding: 15px 0;
     border-bottom: 1px solid #e0e0e0;
+    transition: all 0.3s ease; /* 애니메이션 효과 */
+    justify-content: space-between; /* 좌우 간격 유지 */
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+.news-item:hover {
+    background-color: #f9f9f9; /* 배경색 변경 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+    transform: translateY(-5px); /* 살짝 위로 올라가는 효과 */
 }
 
 .news-title {
@@ -103,6 +114,7 @@
     font-weight: bold;
     color: #333;
     margin-bottom: 8px;
+    flex: 1; /* 텍스트는 공간을 많이 차지하도록 설정 */
 }
 
 .news-date {
@@ -115,4 +127,11 @@
     font-size: 15px;
     color: #555;
     line-height: 1.5;
+}
+
+.news-item img {
+    max-width: 150px; /* 이미지 크기 제한 */
+    max-height: 150px;;
+    height: auto; /* 비율 유지 */
+    margin-left: 150px; /* 텍스트와 이미지 간 간격 */
 }
