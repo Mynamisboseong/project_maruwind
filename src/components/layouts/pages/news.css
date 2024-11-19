@@ -49,6 +49,22 @@
     color: white !important;
 }
 
+.list-button {
+    width: 100%;
+    background-color: white !important;
+    font-size: 20px !important;
+    color: black !important;
+    border-color: #ccc !important;
+    font-weight: bold !important;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    transition: transform 0.3s ease;
+}
+
+.list-button:hover {
+    transform: scale(1.1); /* 마우스 호버 시 10% 확대 */
+}
+
 .trand_news {
     font-family: Noto Sans;
     font-weight: 900;
@@ -68,7 +84,7 @@
 }
 
 .news_carousel_container {
-    max-width: 2000px; /* Carousel의 최대 너비 */
+    max-width: 1400px; /* Carousel의 최대 너비 */
     max-height: 700px; /* Carousel의 최대 높이 */
     margin: 0 auto; /* 중앙 정렬 */
     overflow: hidden; /* 부모 요소를 넘어가는 내용 숨기기 */

@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button';
 import Carousel from 'react-bootstrap/Carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFire,faDownLong} from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from "react-router-dom";
 import './news.css';
 
 const newsData = [
@@ -135,24 +134,32 @@ function NewsPage() {
             {/* 보도자료 리스트 */}
             <div className="news-list">
                 {newsData.map((news, index) => (
-            <div 
-                key={index} 
-                className="news-item" 
-                onClick={() => window.location.href = news.url} // 외부 URL 이동
-                style={{ cursor: "pointer" }} // 클릭 가능 스타일 추가
-            >
-            {/* 텍스트와 이미지가 하나의 부모 요소 안에 있음 */}
-            <div className="news-text">
-                <h3 className="news-title">{news.title}</h3>
-                <p className="news-date">{news.date} | {news.source}</p>
-                <p className="news-summary">{news.summary}</p>
+                    <div 
+                        key={index} 
+                        className="news-item" 
+                        onClick={() => window.location.href = news.url} // 외부 URL 이동
+                        style={{ cursor: "pointer" }} // 클릭 가능 스타일 추가
+                    >
+                        {/* 텍스트와 이미지가 하나의 부모 요소 안에 있음 */}
+                        <div className="news-text">
+                            <h3 className="news-title">{news.title}</h3>
+                            <p className="news-date">{news.date} | {news.source}</p>
+                            <p className="news-summary">{news.summary}</p>
+                        </div>
+                        <img src={news.image} alt={news.title} />
+                    </div>
+                ))}
+                <div className='news-list-button-overay'>
+                    <Button
+                        className='list-button'
+                            onClick={() =>
+                                (window.location.href = 'https://www.newswire.co.kr/?md=A01&cat=1500')
+                            }
+                        >
+                            모든 보도자료 보러가기
+                        </Button>
+                    </div>
             </div>
-            <img src={news.image} alt={news.title} />
-        </div>
-    ))}
-</div>
-
-
         </>
     );
 }
