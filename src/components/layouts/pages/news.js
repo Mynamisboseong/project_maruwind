@@ -60,9 +60,6 @@ const newsData = [
 function NewsPage() {
     return (
         <>
-            <div className="white_line">
-                <p></p>
-            </div>
             <div className="banner-container">
                 <Image src="/newspage/news_banner.png" className="banner_image" />
                 <div className='news_banner_text'>

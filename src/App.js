@@ -13,6 +13,7 @@ import HomeIntroduce from './components/layouts/HomeIntroduce';
 import Notice from './components/layouts/notice.js';
 import NoticeDetail from './components/layouts/notice_detail.js';
 import NewsPage from './components/layouts/pages/news.js';
+import ChallengePageExample from './components/layouts/pages/challenge_page.js';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -43,7 +44,10 @@ function App() {
         {/* 공모전 페이지 */}
 
         {/* 뉴스/보도자료 페이지 */}
-        <Route path="/news" element={<NewsPage/>} />
+        <Route path="/news" element={<NewsPage />} />
+        
+        {/* SNS 챌린지 페이지 */}
+        <Route path="/challenge" element={<ChallengePageExample/>} />
 
 
         {/* 소개 페이지 */}
