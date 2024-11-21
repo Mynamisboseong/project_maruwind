@@ -24,10 +24,7 @@ function BasicExample() {
 
                         {/* 외부행사 드롭다운 */}
                         <NavDropdown title="외부행사" id="campaign-dropdown">
-                            <NavDropdown.Item href="#action/3.1">
-                                캠페인
-                            </NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/constest">
+                            <NavDropdown.Item as={Link} to="/contest">
                                 공모전
                             </NavDropdown.Item>
                         </NavDropdown>

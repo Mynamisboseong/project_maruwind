@@ -14,6 +14,7 @@ import Notice from './components/layouts/notice.js';
 import NoticeDetail from './components/layouts/notice_detail.js';
 import NewsPage from './components/layouts/pages/news.js';
 import ChallengePageExample from './components/layouts/pages/challenge_page.js';
+import Contest from './components/layouts/pages/contest';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -42,6 +43,7 @@ function App() {
         />
 
         {/* 공모전 페이지 */}
+        <Route path="/contest" element={<Contest />} />
 
         {/* 뉴스/보도자료 페이지 */}
         <Route path="/news" element={<NewsPage />} />
