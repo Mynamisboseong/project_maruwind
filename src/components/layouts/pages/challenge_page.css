@@ -1,3 +1,4 @@
+/* 배너 설정 */
 .challengepage_banner {
     background-color: rgb(237, 237, 237);
     font-family: Noto Sans;
@@ -17,10 +18,60 @@
 
 .challengepage_subtitle {
     font-weight: 300;
-    font-size: 23px;
+    font-size: 20px;
 }
 
 .challengepage_button_overay {
     padding-top: 30px;
     padding-bottom: 60px;
+}
+
+/* 메인 컴포넌트 */
+.parent_container {
+    display: flex; /* Flexbox 활성화 */
+    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    height: 100vh; /* 화면 전체 높이 */
+    box-sizing: border-box; /* 패딩을 포함한 크기 계산 */
+    margin: 0; /* 외부 여백 제거 */
+    padding: 0; /* 내부 여백 제거 */
+}
+
+.challengePage_main_component {
+    display: flex; /* Flexbox 활성화 */
+    align-items: center;
+    justify-content: space-between; /* 좌우로 배치 */
+    gap: 100px; /* 이미지와 텍스트 사이 간격 */
+    padding-left: 450px;
+    padding-right: 400px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.challengePage_main_image {
+    flex-shrink: 0; /* 이미지 크기 고정 */
+    max-width: 800px; /* 이미지 최대 너비 */
+    height: auto; /* 비율에 따라 높이 자동 조정 */
+}
+
+.challengePage_main_text {
+    flex: 1; /* 텍스트가 남은 공간을 채움 */
+    text-align: left; /* 텍스트 좌측 정렬 */
+    font-family: Noto Sans;
+}
+
+.challengePage_main_title {
+    font-weight: 900;
+    font-size: 45px;
+    color: #00acae;
+}
+
+.challengePage_main_subtext {
+    font-weight: 400;
+    padding-top: 40px;
+    font-size: 20px;
+}
+
+.challengepage_main_button_overay {
+    padding-top: 40px;
 }

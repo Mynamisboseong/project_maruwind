@@ -1,8 +1,11 @@
-import Carousel from 'react-bootstrap/Carousel'
-import Button from 'react-bootstrap/Button' // 버튼 컴포넌트 추가
-import './carousels.css'
+import Carousel from 'react-bootstrap/Carousel';
+import Button from 'react-bootstrap/Button'; // 버튼 컴포넌트 추가
+import { useNavigate } from 'react-router-dom';
+import './carousels.css';
 
 function UncontrolledExample() {
+    const navigate = useNavigate();
+
     return (
         <Carousel className="carousel-container">
             <Carousel.Item className="carousel-item">
@@ -56,12 +59,19 @@ function UncontrolledExample() {
                         도 확인해보세요!
                     </p>
                 </div>
-                <Button className="carousel-button" size="lg">
+                <Button
+                    className="carousel-button"
+                    size="lg"
+                    onClick={() => {
+                        navigate('/challenge');
+                        window.scrollTo(0, 0); // 페이지 상단으로 스크롤 이동
+                    }}
+                >
                     챌린지 보러가기
                 </Button>
             </Carousel.Item>
         </Carousel>
-    )
+    );
 }
 
-export default UncontrolledExample
+export default UncontrolledExample;
