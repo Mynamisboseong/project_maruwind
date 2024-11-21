@@ -18,6 +18,9 @@
     display: flex;
     justify-content: center; /* 가운데 정렬 */
     width: 100%; /* 전체 폭을 차지하도록 설정 */
+
+    /* padding */
+    padding-bottom: 30px;
 }
 
 /* 만약 Container에 Flexbox 적용이 필요하다면 */
