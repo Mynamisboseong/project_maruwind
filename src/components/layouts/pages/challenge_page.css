@@ -1,0 +1,20 @@
+.challengepage_banner {
+    background-color: rgb(237, 237, 237);
+    font-family: Noto Sans;
+}
+
+.challengePage_banner_smalltitle{
+    padding-top: 70px;
+    font-weight: 600;
+    font-size: 35px;
+}
+.challengepage_banner_title {
+    font-weight: 800;
+    font-size: 40px;
+    color: #ee3a70;
+}
+
+.challengepage_button_overay {
+    padding-top: 30px;
+    padding-bottom: 60px;
+}
