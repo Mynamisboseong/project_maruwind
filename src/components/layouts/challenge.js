@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Image from 'react-bootstrap/Image'
@@ -9,6 +10,7 @@ import './challenge.css'
 function ChallengeExample() {
     const titleRef = useRef(null)
     const [isTitleAnimated, setIsTitleAnimated] = useState(false)
+    const navigate = useNavigate();
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -147,13 +149,14 @@ function ChallengeExample() {
                             <Button
                                 className="campaign-button"
                                 size="lg"
-                                onClick={() =>
-                                    (window.location.href =
-                                        'https://www.instagram.com/explore/tags/줍깅챌린지/')
-                                }
+                                onClick={() => {
+                                    navigate('/challenge');
+                                    window.scrollTo(0, 0); // 페이지 상단으로 스크롤 이동
+                                }}
                             >
                                 SNS 챌린지 보러가기
                             </Button>
+
                         </div>
                     </Col>
                 </div>
