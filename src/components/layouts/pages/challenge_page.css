@@ -9,9 +9,15 @@
     font-size: 35px;
 }
 .challengepage_banner_title {
+    padding-bottom: 20px;
     font-weight: 800;
     font-size: 40px;
     color: #ee3a70;
+}
+
+.challengepage_subtitle {
+    font-weight: 300;
+    font-size: 23px;
 }
 
 .challengepage_button_overay {
