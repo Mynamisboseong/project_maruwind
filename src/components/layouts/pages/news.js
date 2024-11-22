@@ -92,38 +92,39 @@ function NewsPage() {
                 <FontAwesomeIcon icon={faFire} className="fa-beat-fade" style={{ color: "#e00000" }} />
             </div>
 
-
-            <div className="news_carousel_container">
-                <Carousel>
-                    <Carousel.Item>
-                        <iframe
-                            className="carousel-video"
-                            src="https://www.youtube.com/embed/zBnsMlX0NYQ?si=5Ku9tpAm4jmQHkI0"
-                            title="첫 번째 슬라이드 동영상"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        ></iframe>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <iframe
-                            className="carousel-video"
-                            src="https://www.youtube.com/embed/2uauzR_egaU?si=6okLOl2jbATz53ud"
-                            title="두 번째 슬라이드 동영상"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        ></iframe>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <iframe
-                            className="carousel-video"
-                            src="https://www.youtube.com/embed/5IU5rsSzl0o?si=5E2r8q6S0OxCOlXS"
-                            title="세 번째 슬라이드 동영상"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        ></iframe>
-                    </Carousel.Item>
-                </Carousel>
-            </div>
+            <div className='news_carousel_background'>                  
+                <div className="news_carousel_container">
+                    <Carousel>
+                        <Carousel.Item>
+                            <iframe
+                                className="carousel-video"
+                                src="https://www.youtube.com/embed/zBnsMlX0NYQ?si=5Ku9tpAm4jmQHkI0"
+                                title="첫 번째 슬라이드 동영상"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            ></iframe>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <iframe
+                                className="carousel-video"
+                                src="https://www.youtube.com/embed/2uauzR_egaU?si=6okLOl2jbATz53ud"
+                                title="두 번째 슬라이드 동영상"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            ></iframe>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <iframe
+                                className="carousel-video"
+                                src="https://www.youtube.com/embed/5IU5rsSzl0o?si=5E2r8q6S0OxCOlXS"
+                                title="세 번째 슬라이드 동영상"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            ></iframe>
+                        </Carousel.Item>
+                    </Carousel>
+                </div>
+            </div>  
 
             <div className="list_news">
                 <FontAwesomeIcon icon={faDownLong} style={{ color: "#00acae" }}bounce />

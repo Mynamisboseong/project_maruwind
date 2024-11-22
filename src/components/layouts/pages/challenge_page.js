@@ -12,8 +12,6 @@ function ChallengePageExample() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible'); // 화면에 보이면 visible 클래스 추가
-          } else {
-            entry.target.classList.remove('visible'); // 화면에서 벗어나면 클래스 제거 (선택 사항)
           }
         });
       },

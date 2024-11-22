@@ -20,7 +20,7 @@
     width: 100%; /* 전체 폭을 차지하도록 설정 */
 
     /* padding */
-    padding-bottom: 30px;
+    padding-bottom: 15px;
 }
 
 /* 만약 Container에 Flexbox 적용이 필요하다면 */
