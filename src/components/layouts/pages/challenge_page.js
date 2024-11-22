@@ -30,7 +30,7 @@ function ChallengePageExample() {
                 </div>
           </div>
           
-          <div className='parent_container'>
+
             <div className='challengePage_main_component'>
                     <Image className="challengePage_main_image" src="/challengePage/plogging.png" />
                     <div className='challengePage_main_text'>
@@ -56,9 +56,7 @@ function ChallengePageExample() {
                         </div>
                     </div>
             </div>
-          </div>
           
-          <div className='parent_container'>
             <div className='challengePage_main_component'>
                     <Image className="challengePage_main_image" src="/challengePage/courage_challengePage.png" />
                     <div className='challengePage_main_text'>
@@ -87,9 +85,7 @@ function ChallengePageExample() {
                         </div>
                     </div>
             </div>
-          </div>
           
-          <div className='parent_container'>
             <div className='challengePage_main_component'>
                     <Image className="challengePage_main_image" src="/challengePage/upcycling_challengePage.png" />
                     <div className='challengePage_main_text'>
@@ -113,9 +109,85 @@ function ChallengePageExample() {
                             </Button>
                         </div>
                     </div>
-            </div>
-        </div>
+          </div>
           
+          <div className='challengePage_main_component'>
+                    <Image className="challengePage_main_image" src="/challengePage/relay.png" />
+                    <div className='challengePage_main_text'>
+                        <div className='challengePage_main_title'>
+                            기업도, 지자체도 함께! <br />
+                            생태교통 출퇴근 릴레이 챌린지
+                        </div>
+                        <div className='challengePage_main_subtext'>
+                      생태교통 출퇴근 릴레이 챌린지는 친환경 교통수단 이용을 장려하는 캠페인입니다.
+                      참여자는 자전거, 대중교통, 도보 등을 이용해 출퇴근하며 탄소 배출을 줄입니다.
+                      출퇴근 기록을 인증하고, 이를 릴레이 형식으로 다른 사람들에게 독려하는 방식으로 진행됩니다.
+                      지속가능한 교통문화를 확산시키는 것을 목표로 하는 릴레이 챌린지! 참여해보시는 건 어떨까요?
+                        </div>
+                        <div className='challengepage_main_button_overay'>
+                            <Button
+                                className="news_button"
+                                size="lg"
+                                onClick={() =>
+                                    (window.location.href = 'https://www.instagram.com/explore/search/keyword/?q=%23%EC%83%9D%ED%83%9C%EA%B5%90%ED%86%B5%EC%B6%9C%ED%87%B4%EA%B7%BC%EC%B1%8C%EB%A6%B0%EC%A7%80')
+                                }
+                            >
+                                출퇴근릴레이챌린지 보러가기
+                            </Button>
+                        </div>
+                    </div>
+          </div>
+          
+          <div className='challengePage_main_component'>
+                    <Image className="challengePage_main_image" src="/challengePage/imok.png" />
+                    <div className='challengePage_main_text'>
+                        <div className='challengePage_main_title'>
+                            지구를 위한 거절, "괜찮아요!"
+                        </div>
+                        <div className='challengePage_main_subtext'>
+                      괜찮아요 챌린지는 일상 속에서 환경을 생각하는 작은 실천을 독려하는 캠페인입니다.
+                      참여자는 재활용, 자원 절약, 환경보호 활동 등을 실천하고 이를 인증합니다.
+                      인증된 활동은 다른 참여자들과 공유되어 긍정적인 변화를 확산시키는 데 기여합니다.
+                      누구나 쉽고 재미있게 참여할 수 있는 챌린지입니다.
+                        </div>
+                        <div className='challengepage_main_button_overay'>
+                            <Button
+                                className="news_button"
+                                size="lg"
+                                onClick={() =>
+                                    (window.location.href = 'https://www.instagram.com/explore/search/keyword/?q=%23%EA%B4%9C%EC%B0%AE%EC%95%84%EC%9A%94%EC%B1%8C%EB%A6%B0%EC%A7%80')
+                                }
+                            >
+                                괜찮아요챌린지 보러가기
+                            </Button>
+                        </div>
+                    </div>
+          </div>
+          
+          <div className='challengePage_main_component'>
+                    <Image className="challengePage_main_image" src="/challengePage/byeplastic.png" />
+                    <div className='challengePage_main_text'>
+                        <div className='challengePage_main_title'>
+                      플라스틱 잘가! <br />
+                      바이바이플라스틱 챌린지
+                        </div>
+                        <div className='challengePage_main_subtext'>
+                      바이바이 플라스틱 챌린지는 플라스틱 사용 줄이기를 목표로 하는 환경 캠페인입니다.
+                      ‘안녕(Bye)’이라는 의미로 양손을 흔드는 동작과 함께 플라스틱 사용 줄이기를 실천하겠다는 다짐을 인증하고 다음 참여자 지목과 #환경부, #바이바이플라스틱, #BBP 해시태그를 함께 SNS에 게시하면 참여 완료!
+                        </div>
+                        <div className='challengepage_main_button_overay'>
+                            <Button
+                                className="news_button"
+                                size="lg"
+                                onClick={() =>
+                                    (window.location.href = 'https://www.instagram.com/explore/search/keyword/?q=%23%EB%B0%94%EC%9D%B4%EB%B0%94%EC%9D%B4%ED%94%8C%EB%9D%BC%EC%8A%A4%ED%8B%B1')
+                                }
+                            >
+                                바이바이플라스틱챌린지 보러가기
+                            </Button>
+                        </div>
+                    </div>
+            </div>
     </>
   )
 }

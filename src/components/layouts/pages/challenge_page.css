@@ -1,3 +1,10 @@
+/* 반응형 미디어 쿼리*/
+@media (max-width: 768px) {
+    .challengePage_main_component {
+        flex-direction: column; /* 화면이 작아지면 세로로 배치 */
+    }
+}
+
 /* 배너 설정 */
 .challengepage_banner {
     background-color: rgb(237, 237, 237);
@@ -27,16 +34,6 @@
 }
 
 /* 메인 컴포넌트 */
-.parent_container {
-    display: flex; /* Flexbox 활성화 */
-    align-items: center; /* 세로 중앙 정렬 */
-    justify-content: center; /* 가로 중앙 정렬 */
-    height: 100vh; /* 화면 전체 높이 */
-    box-sizing: border-box; /* 패딩을 포함한 크기 계산 */
-    margin: 0; /* 외부 여백 제거 */
-    padding: 0; /* 내부 여백 제거 */
-}
-
 .challengePage_main_component {
     display: flex; /* Flexbox 활성화 */
     align-items: center;
@@ -69,7 +66,7 @@
 .challengePage_main_subtext {
     font-weight: 400;
     padding-top: 40px;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 .challengepage_main_button_overay {
