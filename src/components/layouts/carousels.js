@@ -39,7 +39,14 @@ function UncontrolledExample() {
                         도 추천해준다고?
                     </p>
                 </div>
-                <Button className="carousel-button" size="lg">
+                <Button
+                    className="carousel-button"
+                    size="lg"
+                    onClick={() => {
+                        navigate('/contest');
+                        window.scrollTo(0, 0); // 페이지 상단으로 스크롤 이동
+                    }}
+                >
                     공모전 보러가기
                 </Button>
             </Carousel.Item>

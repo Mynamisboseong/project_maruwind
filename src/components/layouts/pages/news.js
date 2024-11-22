@@ -61,15 +61,15 @@ function NewsPage() {
     return (
         <>
             <div className="banner-container">
-                <Image src="/newspage/news_banner.png" className="banner_image" />
                 <div className='news_banner_text'>
-                    <span className="newsbanner_title_text">
+                    <div className="newsbanner_title_text">
                         <span className='newbanner_title_hightlight'>환경보호 소식</span>
-                        을 빠르게 확인해보세요
-                    </span><br/>
-                    <span className='newsbanner_subtext'>
-                        환경관련 보도자료와 언론들을 이곳에서 둘러보세요 <br />
-                    </span>
+                        을 빠르게 확인해보세요!
+                    </div>
+                    <div className='newsbanner_subtext'>
+                        많은 환경관련 보도자료와 언론자료들을 이 곳에서 게시하고 있습니다. <br/>
+                        대한민국 환경부 공식유튜브에서도 많은 환경관련 콘텐츠를 업로드 하고 있으니 방문해보세요!
+                    </div>
                     <div className='news_button_overay'>
                         <Button
                             className="news_button"

@@ -1,43 +1,31 @@
 .banner-container {
-    position: relative;
-    display: flex;
-    justify-content: center; /* 가로 중앙 정렬 */
-    align-items: center; /* 세로 중앙 정렬 */
-    flex-direction: column; /* 텍스트와 이미지를 세로로 배치 */
-    background-color: black
+    background-color: rgb(237, 237, 237)
     ;
 }
 
-.banner_image {
-    max-width: 100%;
-    height: auto;
-    padding-left: 25%;
-}
-
 .news_banner_text {
-    position: absolute; /* 이미지 위에 텍스트 겹치기 */
-    color: white;
+    color: black;
     font-family: Noto Sans;
     font-weight: 800;
     font-size: 35px;
-    padding: 10px;
-    padding-right: 15%;
-    border-radius: 5px;
     text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
+.newsbanner_title_text {
+    padding-bottom: 30px;
+    display: block; /* 블록 요소로 명시적으로 설정 */
+}
 .newbanner_title_hightlight {
     font-size: 45px;
     color: #00acae;
 }
 
 .newsbanner_subtext {
-    font-size: 25px;
-    font-weight: 400;
-}
-
-.news_button_overay {
-    padding-top: 20px;
+    font-size: 20px;
+    font-weight: 300;
+    padding-bottom: 30px;
 }
 
 .news_button {
@@ -69,7 +57,7 @@
 .trand_news {
     font-family: Noto Sans;
     font-weight: 900;
-    font-size: 60px;
+    font-size: 50px;
     color: black;
     padding-top: 120px;
     padding-bottom: 50px;
