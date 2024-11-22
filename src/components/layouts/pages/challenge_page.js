@@ -1,8 +1,34 @@
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
+import React, { useEffect } from 'react';
 import './challenge_page.css'
 
 function ChallengePageExample() {
+    useEffect(() => {
+    const titles = document.querySelectorAll('.challengePage_main_title');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible'); // 화면에 보이면 visible 클래스 추가
+          } else {
+            entry.target.classList.remove('visible'); // 화면에서 벗어나면 클래스 제거 (선택 사항)
+          }
+        });
+      },
+        {
+            threshold: 0.5,
+            rootMargin: '0px 0px -400px 0px' // 하단 여백 설정
+        } // 요소의 50%가 보일 때 트리거
+      
+    );
+
+    titles.forEach((title) => observer.observe(title));
+
+    // 클린업 함수 (컴포넌트가 언마운트되면 Observer 해제)
+    return () => observer.disconnect();
+  }, []);
   return (
     <>
           <div className="challengepage_banner">

@@ -61,6 +61,14 @@
     font-weight: 900;
     font-size: 45px;
     color: #00acae;
+    opacity: 0; /* 투명 상태 */
+    transform: translateY(20px); /* 아래로 약간 이동 */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.challengePage_main_title.visible {
+    opacity: 1; /* 불투명 */
+    transform: translateY(0); /* 제자리로 이동 */
 }
 
 .challengePage_main_subtext {
