@@ -23,11 +23,7 @@ function BasicExample() {
                         </NavDropdown>
 
                         {/* 외부행사 드롭다운 */}
-                        <NavDropdown title="외부행사" id="campaign-dropdown">
-                            <NavDropdown.Item as={Link} to="/contest">
-                                공모전
-                            </NavDropdown.Item>
-                        </NavDropdown>
+                        <Nav.Link as={Link} to="/contest">공모전</Nav.Link>
 
                         {/* 뉴스/보도자료 */}
                         <Nav.Link as={Link} to="/news">뉴스/보도자료</Nav.Link>
