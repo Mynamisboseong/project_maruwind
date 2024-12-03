@@ -46,6 +46,17 @@
     margin-top: 1rem;
   }
   
+  .notice-table a {
+    text-decoration: none; /* 기본 링크 밑줄 제거 */
+    color: #333; /* 글자 색상 */
+    font-weight: bold; /* 강조된 제목 */
+  }
+  
+  .notice-table a:hover {
+    text-decoration: underline; /* 마우스 오버 시 밑줄 추가 */
+    color: #4CAF50; /* 마우스 오버 시 링크 색상 변경 */
+  }
+  
   .notice-table th,
   .notice-table td {
     padding: 0.75rem;

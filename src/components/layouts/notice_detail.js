@@ -62,15 +62,19 @@ const notices = [
 function NoticeDetail() {
     const { id } = useParams()
     const noticeId = parseInt(id)
-    const notice = notices.find((n) => n.id === noticeId)
+    const noticeIndex = notices.findIndex((n) => n.id === noticeId)
     const navigate = useNavigate()
 
-    if (!notice) {
+    if (noticeIndex === -1) {
         return <div>공지사항을 찾을 수 없습니다.</div>
     }
 
-    const specialNotices = [3, 4, 5] // 3, 4, 5번 공지사항을 배열로 묶음
-    const isSpecialNotice = specialNotices.includes(noticeId) // 공지사항 ID가 배열에 포함되면 true
+    const notice = notices[noticeIndex]
+    const previousNotice = notices[noticeIndex - 1]
+    const nextNotice = notices[noticeIndex + 1]
+
+    const specialNotices = [3, 4, 5] 
+    const isSpecialNotice = specialNotices.includes(noticeId)
 
     return (
         <div
@@ -97,6 +101,24 @@ function NoticeDetail() {
                     ))}
                 </div>
             </div>
+            <div className="notice-navigation">
+    {previousNotice && (
+        <button
+            className="previous-button"
+            onClick={() => navigate(`/notice/${previousNotice.id}`)}
+        >
+            ← 이전 공지사항
+        </button>
+    )}
+    {nextNotice && (
+        <button
+            className="next-button"
+            onClick={() => navigate(`/notice/${nextNotice.id}`)}
+        >
+            다음 공지사항 →
+        </button>
+    )}
+</div>
         </div>
     )
 }
