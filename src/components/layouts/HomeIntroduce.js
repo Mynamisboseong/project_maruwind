@@ -16,61 +16,59 @@ function HomeIntroduce() {
             {/* 그리드 섹션: 우리가 하는 일 */}
             <div className="content-container we-do">
                 <h2 className="we-do-title">
-                    마루바람은 지구의 목소리를 대신하기 위해 활동합니다
+                    마루바람은 환경보호 인식 상승을 위해 활동합니다
                 </h2>
                 <div className="mission-grid">
                     <div className="mission-item">
-                        <h3>해결책</h3>
+                        <h3>친밀성</h3>
                         <img
-                            src="/solution.png"
+                            src="/introduce/friendly.png"
                             alt="해결책 이미지"
                             className="mission-image"
                         />
                         <p>
-                            우리는 단순히 문제를 지적하는 데서 그치지 않고,
-                            연구와 조사 활동을 통해 건강한 미래와 깨끗한 지구를
-                            만들기 위한 효과적인 해결책을 제시합니다.
+                        마루바람은 환경 보호를 딱딱하고 어려운 주제가 아니라, 누구나 쉽게 다가갈 수 있는 친숙한 이야기로 전달합니다.
+                        우리의 삶과 밀접하게 연결된 환경의 가치를 공감할 수 있도록 따뜻하고 이해하기 쉬운 콘텐츠를 제공합니다.
                         </p>
                     </div>
 
-  <div className="mission-item">
-    <h3>독립성</h3>
-    <img
-      src="/independence.png"
-      alt="독립성 이미지"
-      className="mission-image"
-    />
-    <p>
-      마루바람은 정부, 기업, 독립재단 혹은 정당으로부터 어떠한 후원도 받지 않으며, 
-      오로지 개인의 자금으로만 운영됩니다.
-    </p>
-  </div>
+                    <div className="mission-item">
+                      <h3>접근성</h3>
+                      <img
+                        src="/introduce/access.png"
+                        alt="독립성 이미지"
+                        className="mission-image"
+                      />
+                      <p>
+                      복잡하거나 어려운 정보는 필요 없습니다. 
+                      마루바람은 환경 보호를 위한 실천 방법과 정보를 누구나 이해하기 쉽고 간편하게 제공합니다. 
+                      클릭 한 번이면 필요한 모든 정보를 확인할 수 있는 직관적인 플랫폼을 지향합니다.
+                      </p>
+                    </div>
 
                     <div className="mission-item">
-                        <h3>글로벌</h3>
+                        <h3>일상화</h3>
                         <img
-                            src="/global.png"
+                            src="/introduce/everyday.png"
                             alt="글로벌 이미지"
                             className="mission-image"
                         />
                         <p>
-                            환경문제는 국경이 없습니다. 국제 환경단체로서
-                            마루바람은 초국가적 환경문제에 대응하고 범세계적인
-                            지식과 자원을 활용합니다.
+                        환경 보호는 특별한 일이 아니라 우리의 삶 속에 자연스럽게 녹아들어야 합니다. 
+                        마루바람은 환경 보호를 일상에서 실천할 수 있는 작은 변화들로 안내하며, 지속 가능한 삶을 돕는 동반자가 되어 드립니다.
                         </p>
                     </div>
 
                     <div className="mission-item">
-                        <h3>비폭력</h3>
+                        <h3>영향력</h3>
                         <img
-                            src="/peace.png"
+                            src="/introduce/impact.png"
                             alt="비폭력 이미지"
                             className="mission-image"
                         />
                         <p>
-                            마루바람은 양심에 기반한 행동을 하며, 평화에
-                            헌신합니다. 마루바람의 모든 액션은 평화적 방식으로
-                            이루어집니다.
+                        작은 변화가 모이면 큰 파도를 일으킬 수 있습니다. 
+                        마루바람은 개인의 실천이 사회와 지구에 긍정적인 영향을 미친다는 믿음 아래, 함께 변화를 만들어가는 플랫폼이 되고자 합니다.
                         </p>
                     </div>
                 </div>
