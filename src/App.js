@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom' // Router 제거
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BrandExample from './components/layouts/icon_brand.js'
 import BasicExample from './components/layouts/menu-navbar.js'
 import UncontrolledExample from './components/layouts/carousels.js'
@@ -17,11 +17,13 @@ import ChallengePageExample from './components/layouts/pages/challenge_page.js'
 import Contest from './components/layouts/pages/contest.js'
 import ContestDetail from './components/layouts/pages/contest_detail.js'
 
+// 새로 추가된 컴포넌트
+import AddContest from './components/layouts/pages/add_contest.js'
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
 function App() {
-  console.log('Firebase API Key:', process.env.REACT_APP_FIREBASE_apiKey)
   return (
     <div className="App">
       <BrandExample />
@@ -47,6 +49,9 @@ function App() {
         <Route path="/contest" element={<Contest />} />
         <Route path="/contest/:id" element={<ContestDetail />} />
 
+        {/* 공모전 글쓰기 페이지 (새로운 라우팅 추가) */}
+        <Route path="/add-contest" element={<AddContest />} />
+
         {/* 뉴스/보도자료 페이지 */}
         <Route path="/news" element={<NewsPage />} />
 
@@ -63,4 +68,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
