@@ -1,36 +1,42 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { collection, onSnapshot } from "firebase/firestore";
-import { db } from "../../../firebase"; // Firebase 초기화 경로
-import "./contest.css";
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { collection, onSnapshot } from 'firebase/firestore'
+import { db } from '../../../firebase' // Firebase 초기화 경로
+import './contest.css'
 
 function Contest() {
-  const [contests, setContests] = useState([]); // Firestore 데이터 저장
-  const [filter, setFilter] = useState("전체"); // 필터 상태
-  const [loading, setLoading] = useState(true); // 로딩 상태 추가
+  const [contests, setContests] = useState([]) // Firestore 데이터 저장
+  const [filter, setFilter] = useState('전체') // 필터 상태
+  const [loading, setLoading] = useState(true) // 로딩 상태 추가
+  const [searchQuery, setSearchQuery] = useState('') // 검색 상태
 
   // Firestore에서 데이터 가져오기
   useEffect(() => {
-    const unsubscribe = onSnapshot(collection(db, "contests"), (snapshot) => {
+    const unsubscribe = onSnapshot(collection(db, 'contests'), (snapshot) => {
       const fetchedContests = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
-      }));
-      setContests(fetchedContests);
-      setLoading(false); // 로딩 완료
-    });
+      }))
+      setContests(fetchedContests)
+      setLoading(false) // 로딩 완료
+    })
 
-    return () => unsubscribe(); // 컴포넌트가 언마운트되면 구독 해제
-  }, []);
+    return () => unsubscribe() // 컴포넌트가 언마운트되면 구독 해제
+  }, [])
 
   // 필터링된 데이터
-  const filteredContests = contests.filter((contest) =>
-    filter === "전체" ? true : contest.category.includes(filter)
-  );
+  const filteredContests = contests.filter((contest) => {
+    const matchesFilter =
+      filter === '전체' ? true : contest.category.includes(filter)
+    const matchesSearch =
+      contest.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      contest.organizer.toLowerCase().includes(searchQuery.toLowerCase())
+    return matchesFilter && matchesSearch
+  })
 
   // 로딩 중 표시
   if (loading) {
-    return <div className="loading">로딩 중...</div>;
+    return <div className="loading">로딩 중...</div>
   }
 
   return (
@@ -45,9 +51,13 @@ function Contest() {
       <div className="contest-images">
         {contests.slice(0, 3).map(
           (contest) =>
-            contest.images && contest.images[0] && (
+            contest.images &&
+            contest.images[0] && (
               <Link to={`/contest/${contest.id}`} key={contest.id}>
-                <img src={`/contest/${contest.images[0]}`} alt={contest.title} />
+                <img
+                  src={`/contest/${contest.images[0]}`}
+                  alt={contest.title}
+                />
               </Link>
             )
         )}
@@ -55,15 +65,34 @@ function Contest() {
 
       {/* 필터 버튼 */}
       <div className="contest-filters">
-        {["전체", "진행중", "마감"].map((category) => (
+        {['전체', '진행중', '마감'].map((category) => (
           <button
             key={category}
-            className={`filter-button ${filter === category ? "active" : ""}`}
+            className={`filter-button ${filter === category ? 'active' : ''}`}
             onClick={() => setFilter(category)}
           >
             {category}
           </button>
         ))}
+      </div>
+
+      {/* 검색 및 글 작성하기 버튼 섹션 */}
+      <div className="search-bar-container">
+        <label className="search-label">
+          검색🔍
+          <input
+            type="text"
+            className="search-input"
+            placeholder="제목 또는 주최측 검색"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </label>
+        <div className="add-contest-button right-align">
+          <Link to="/contest/add">
+            <button>글 작성하기</button>
+          </Link>
+        </div>
       </div>
 
       {/* 공모전 리스트 */}
@@ -82,7 +111,9 @@ function Contest() {
               <tr
                 key={contest.id}
                 className="contest-row"
-                onClick={() => (window.location.href = `/contest/${contest.id}`)}
+                onClick={() =>
+                  (window.location.href = `/contest/${contest.id}`)
+                }
               >
                 <td>{contest.title}</td>
                 <td>{contest.organizer}</td>
@@ -94,7 +125,7 @@ function Contest() {
         </table>
       </div>
     </div>
-  );
+  )
 }
 
-export default Contest;
+export default Contest
