@@ -87,7 +87,7 @@ function Contest() {
       {/* 검색 및 글 작성하기 버튼 섹션 */}
       <div className="search-bar-container">
         <label className="search-label">
-          검색🔍
+        <span className="search-icon">검색🔍</span>
           <input
             type="text"
             className="search-input"

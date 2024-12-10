@@ -1,12 +1,3 @@
-/* 페이지 기본 스타일 초기화 */
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-  overflow-x: hidden;
-}
-
 /* 공지사항 페이지 전체 컨테이너 */
 .notice-page {
   max-width: 1200px;
@@ -24,12 +15,12 @@ body {
 }
 
 /* 글 작성 버튼 */
-.add-contest-button {
+.notice-add-button {
   text-align: right;
   margin-bottom: 20px;
 }
 
-.add-contest-button button {
+.notice-add-button button {
   background-color: #00acae;
   color: white;
   border: none;
@@ -39,7 +30,7 @@ body {
   font-size: 17px;
 }
 
-.add-contest-button button:hover {
+.notice-add-button button:hover {
   background-color: #0056b3;
 }
 
@@ -92,11 +83,11 @@ body {
 }
 
 /* 클릭 가능한 행 스타일 */
-.notice-table tbody tr.clickable-row {
+.notice-table tbody tr.notice-clickable-row {
   cursor: pointer;
 }
 
-.notice-table tbody tr.clickable-row:hover {
+.notice-table tbody tr.notice-clickable-row:hover {
   background-color: #e9ecef;
 }
 
@@ -118,19 +109,24 @@ body {
   background-color: #e9ecef;
 }
 
-.search-bar-container {
+.notice-search-bar-container {
   display: flex;
-  justify-content: space-between; /* 왼쪽과 오른쪽 정렬 */
-  align-items: center; /* 수직 정렬 */
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-.search-label {
+.notice-search-label {
   font-weight: bold;
   margin-right: 10px;
 }
 
-.search-input {
+.notice-search-icon {
+  font-size: 20px; 
+  margin-right: 10px;
+}
+
+.notice-search-input {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;

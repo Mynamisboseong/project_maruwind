@@ -128,18 +128,21 @@ body {
   align-items: center; /* 수직 정렬 */
   margin-bottom: 20px;
 }
-
 .search-label {
   font-weight: bold;
   margin-right: 10px;
 }
-
 .search-input {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 14px;
   width: 300px;
+}
+
+.search-icon {
+  font-size: 20px;
+  margin-right: 10px;
 }
 
 .add-contest-button {
