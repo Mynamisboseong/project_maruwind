@@ -1,215 +1,249 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { doc, getDoc, deleteDoc, updateDoc } from "firebase/firestore";
+import { db } from "../../../firebase";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import "./contest_detail.css";
 
-const contestData = [
-  {
-    id: 1,
-    title: "2024 탄소중립 쇼츠 공모전",
-    organizer: "경상남도 탄소중립지원센터",
-    status: "진행 중",
-    images: ["contest_detail1.png"],
-    content: `■ 응모주제
-    경상남도 탄소중립 생활 실천 또는 정책, 슬기로운 탄소생활(어플)에 관한 순수 창작 영상
-    ※ 슬기로운 탄소생활(어플) 내용은 첨부파일 확인 바랍니다.
+function ContestDetail() {
+  const { id } = useParams(); // URL에서 게시글 ID 가져오기
+  const navigate = useNavigate(); // 페이지 이동을 위한 네비게이트
+  const [contest, setContest] = useState(null);
+  const [isEditing, setIsEditing] = useState(false); // 수정 모드 상태
+  const [editedContent, setEditedContent] = useState({
+    title: "",
+    organizer: "",
+    author: "",
+    status: "",
+    deadline: "",
+    content: "",
+    field: "",
+    targetAudience: "",
+    totalPrize: "",
+    firstPrize: "",
+    website: "",
+    imageUrl: "",
+  });
+  const [selectedImage, setSelectedImage] = useState(null);
 
-    ■ 응모자격
-    도내 대학생 및 대학원생(개인 또는 팀(팀당 최대 5명))
-    
-    ■ 접수방법
-    본인 유튜브 업로드 후 메일로 제출(ha0817@gnen.or.kr)
+  useEffect(() => {
+    const fetchContest = async () => {
+      try {
+        const docRef = doc(db, "contests", id);
+        const docSnap = await getDoc(docRef);
 
-    ■ 접수기간
-    2024. 11. 25.(월) ~ 12. 15.(일)
+        if (docSnap.exists()) {
+          setContest(docSnap.data());
+          setEditedContent(docSnap.data()); // 수정 모드 초기값 설정
+        } else {
+          console.error("No such document!");
+        }
+      } catch (error) {
+        console.error("Error fetching document: ", error);
+      }
+    };
 
-    ■ 문의처
-    경상남도 탄소중립지원센터(055-344-4250)`,
-  },
-  {
-    id: 2,
-    title: "제 4회 숏츠멘터리 공모전 [플라스틱의 환경역습 보고서]",
-    organizer: "(사)지속가능월드네트워크",
-    status: "D-3",
-    images: ["contest4.jpg"],
-    content: `■ 공모주제     
-    [편리함을 상징했던 플라스틱은 어떻게 환경을 무너뜨렸나]  
+    fetchContest();
+  }, [id]);
 
-    ■ 행사내용 
-    - 공모 기간: 11월18일~ 12월6일까지    
-    - 내용: 플라스틱의 환경 역습에 대해 사회적 이슈 끌어내기           
-    1) 플라스틱이 가져온 생태계의 변화           
-    2) 전세계 플라스틱프리 정책과 대안 소개           
-    3) 플라스틱을 줄일 수 있는 우리사회의 변화 제안    
+  const handleDelete = async () => {
+    const confirmDelete = window.confirm("이 게시글을 삭제하시겠습니까?");
+    if (confirmDelete) {
+      try {
+        await deleteDoc(doc(db, "contests", id));
+        alert("게시글이 삭제되었습니다.");
+        navigate("/contest"); // 삭제 후 공모전 목록 페이지로 이동
+      } catch (error) {
+        console.error("Error deleting document: ", error);
+        alert("게시글 삭제에 실패했습니다.");
+      }
+    }
+  };
 
-    ■ 제출형식  
-    mp4, wmv, avi, mov 등 영상파일 (가로촬영)      
-    - 해상도 1920X1080(FHD화질) 이상      
-    - 분량 : 30초~ 2분이내의 영상      
-    - 장르 : 숏츠+다큐멘터리 형태의 셀프 카메라 
+  const handleEditToggle = () => {
+    setIsEditing(!isEditing);
+  };
 
-    ■ 제출방법      
-    제4회 숏츠멘터리 영상제 <플라스틱의 환경역습 보고서>      
-    지월네 구글폼에 제출      
-    https://forms.gle/jhLzjye2SQ5JFSAc6
+  const handleEditChange = (e) => {
+    const { name, value } = e.target;
+    setEditedContent({ ...editedContent, [name]: value });
+  };
 
-    ■ 시상내용        
-    1) 대상 1명 150만원 상금         
-    2) 최우수상 1명 50만원 상금         
-    3) 우수상 2명 각 30만원 
+  const handleImageUpload = async () => {
+    if (!selectedImage) return null;
 
-    ■ 시상자 발표: 2024년 12월 13일 (금) 
-    지월네 홈페이지, SNS채널 통해 확인  
+    const storage = getStorage();
+    const storageRef = ref(storage, `contest-images/${id}/${selectedImage.name}`);
 
-    ■ 시상식 및 장소: 추후 공지 
-    
-    ■ 유의사항:         
-    1)응모작품은 다른 대회에서 입상하거나 공식발표한 사실이 없는 미발표 순수창작품이어야 하며 표절이나 모방, 중복 응모한 사실이 확인될 경우 입상을 취소합니다.
-    2)초상권과 음악저작권은 반드시 확인후 사용하시기 바랍니다.         
-    3)영상은 팀(본인)이 촬영한 콘텐츠만 사용해주세요         
-    4)공모전에 출품된 작품들은 기후환경캠페인 및 교육자료등에 활용하고 국민들이 손쉽게 공모작품을 만나볼 수 있도록 주관사의 SNS계정에 게시됩니다. 이에 동의하지 않으시면          공모전 출품이 제한되니 참고하여 주세요. 
-    
-    ■ 문의처: sdgsworld@gmail.com /@swntv_official 인스타 DM`,
-  },
-  {
-    id: 3,
-    title: "환경미화 이미지 개선 공모전",
-    organizer: "에이팩시티 지식산업센터",
-    status: "진행 중",
-    images: ["contest5.jpg"],
-    content: `■ 참가 자격
-  - 고등학생 이상, 경기도 화성 인근이면 누구나
+    try {
+      await uploadBytes(storageRef, selectedImage);
+      const downloadURL = await getDownloadURL(storageRef);
+      return downloadURL;
+    } catch (error) {
+      console.error("Error uploading image: ", error);
+      alert("이미지 업로드에 실패했습니다.");
+      return null;
+    }
+  };
 
-  ■ 공모 분야
-  - 포스터 또는 시안
+  const handleEditSubmit = async () => {
+    try {
+      let imageUrl = editedContent.imageUrl;
+      if (selectedImage) {
+        imageUrl = await handleImageUpload();
+      }
 
-  ■ 공모 주제
-  - 재활용 분리수거장 가리막 이미지 개선
-  
-  ■ 공모 일정
-  - 접수기간 : 2024. 11.26 ~ 2024. 12. 06
+      const updatedContent = { ...editedContent, imageUrl };
+      const docRef = doc(db, "contests", id);
+      await updateDoc(docRef, updatedContent);
+      setContest(updatedContent);
+      setIsEditing(false);
+      alert("게시글이 성공적으로 수정되었습니다.");
+    } catch (error) {
+      console.error("Error updating document: ", error);
+      alert("게시글 수정에 실패했습니다.");
+    }
+  };
 
-  ■ 제출 형식
-  - apexcity823@naver.com
-
-  ■ 접수 방법
-  - apexcity823@naver.com
-
-  ■ 문의 사항
-  - apexcity823@naver.com`,
-  },
-  {
-    id: 4,
-    title: "친환경 자원순환센터 슬로건 공모전",
-    organizer: "인천광역시 자원순환과",
-    status: "마감",
-    images: ["contest3.jpg"],
-    content: `■ 공모기간: 2024. 11. 5.(화) ~ 12. 1.(일) 24:00 (27일 간)
-
-    ■ 공모주제 : “내 삶에 도움이 되는 자원순환센터”
-    ※ 자원순환센터의 중요성을 알리고, 지속가능한 미래 비전을 제시하는 내용
-
-    ■ 응모자격: 자원순환센터 정책에 관심있는 누구나
-
-    ■ 심사 및 결과발표
-    - 심사방법: 심사기준을 고려하여 심사위원회를 거쳐 선정
-    - 심사기준: 창의성, 주제 적합성, 전달력
-    - 결과발표: 2024. 12. 5.(목), 인천광역시 홈페이지 게시
-    - 시 상 식: 2024. 12. 13.(금) 17:00, 인천광역시청 대회의실(본관 2층)
-
-    ■ 시상내역
-    - 대상(1) : 30만원 상당 인천이음카드 포인트
-    - 최우수상(1) : 10만원 인천이음카드 포인트
-    - 우수상(4) : 5만원 인천이음카드 포인트
-
-    ■ 문의 : 인천광역시 자원순환과(032-440-3584)`,
-  },
-  {
-    id: 5,
-    title: "2024 기후-환경 숏폼 영상 공모전",
-    organizer: "ECO FUTURE",
-    status: "마감",
-    images: ["contest2.jpg"],
-    content: `■ 참가 자격
-    3~4인 1조로 이루어진 만18세 이상의 서울 소재 대학생 및 대학원생(재학생, 휴학생 무관)
-
-    ■ 접수 기간
-    11월 11일부터 11월 29일까지
-    - 수상발표: 12월 중 예정(개별통보)
-
-    ■ 주제
-    1. 환경 보호 활동을 독려하는 영상
-    2. 자연의 아름다움을 홍보하는 영상
-    3. 기후변화의 심각성을 알리는 영상
-
-    ■ 시상
-    내역대상(1명): 200만원최우수상(10명): 100만원우수상(30명): 상품권*1-3등 수상자는 ‘환경사랑’ 상장 수여
-
-    ■ 지원 방법https://forms.gle/2WSywVfnYXLGBuDk6
-
-    ■ 문의mail. ecofu1ure@gmail.com`,
-  },
-];
-
-const ContestDetail = () => {
-  const { id } = useParams();
-  const contestId = parseInt(id, 10);
-  const contestIndex = contestData.findIndex((contest) => contest.id === contestId);
-  const navigate = useNavigate();
-
-  if (contestIndex === -1) {
-    return <div>공모전을 찾을 수 없습니다.</div>;
+  if (!contest) {
+    return <div className="loading">로딩 중...</div>;
   }
 
-  const contest = contestData[contestIndex];
-  const previousContest = contestData[contestIndex - 1];
-  const nextContest = contestData[contestIndex + 1];
-
-  const specialContests = [1, 2];
-  const isSpecialContest = specialContests.includes(contestId);
-
   return (
-    <div
-      className={`contest-detail ${isSpecialContest ? "special-contest" : ""}`}
-    >
-      <h1 className="contest-title">{contest.title}</h1>
-      <div className="contest-info">
-        <p>
-          <strong>주최:</strong> {contest.organizer}
-        </p>
-        <p>
-          <strong>상태:</strong> {contest.status}
-        </p>
-      </div>
-      <div className="contest-content">
-        <p>{contest.content}</p>
-        {contest.images && contest.images.length > 0 && (
-          <div className="contest-detail-images">
-            {contest.images.map((image, index) => (
-              <img
-                key={index}
-                src={image}
-                alt={`Contest image ${index + 1}`}
-              />
-            ))}
+    <div className="contest-detail-page">
+      {isEditing ? (
+        <div className="edit-mode">
+          <h1>게시글 수정</h1>
+          <input
+            type="text"
+            name="title"
+            value={editedContent.title}
+            onChange={handleEditChange}
+            placeholder="제목"
+          />
+          <input
+            type="text"
+            name="organizer"
+            value={editedContent.organizer}
+            onChange={handleEditChange}
+            placeholder="주최"
+          />
+          <input
+            type="text"
+            name="author"
+            value={editedContent.author}
+            onChange={handleEditChange}
+            placeholder="작성자"
+          />
+          <input
+            type="text"
+            name="field"
+            value={editedContent.field}
+            onChange={handleEditChange}
+            placeholder="분야"
+          />
+          <input
+            type="text"
+            name="targetAudience"
+            value={editedContent.targetAudience}
+            onChange={handleEditChange}
+            placeholder="응모 대상"
+          />
+          <input
+            type="text"
+            name="totalPrize"
+            value={editedContent.totalPrize}
+            onChange={handleEditChange}
+            placeholder="총 상금"
+          />
+          <input
+            type="text"
+            name="firstPrize"
+            value={editedContent.firstPrize}
+            onChange={handleEditChange}
+            placeholder="1등 상금"
+          />
+          <input
+            type="url"
+            name="website"
+            value={editedContent.website}
+            onChange={handleEditChange}
+            placeholder="홈페이지"
+          />
+          <input
+            type="text"
+            name="status"
+            value={editedContent.status}
+            onChange={handleEditChange}
+            placeholder="상태"
+          />
+          <input
+            type="date"
+            name="deadline"
+            value={editedContent.deadline}
+            onChange={handleEditChange}
+          />
+          <textarea
+            name="content"
+            value={editedContent.content}
+            onChange={handleEditChange}
+            placeholder="내용"
+          />
+          <input
+            type="file"
+            onChange={(e) => setSelectedImage(e.target.files[0])}
+            style={{ marginTop: "10px" }}
+          />
+          <div className="button-container">
+            <button className="edit-button" onClick={handleEditSubmit}>
+              수정 완료
+            </button>
+            <button className="cancel-button" onClick={handleEditToggle}>
+              취소
+            </button>
           </div>
-        )}
-      </div>
-      <div className="contest-navigation">
-        {previousContest && (
-          <button className="previous-button"
-          onClick={() => navigate(`/contest/${previousContest.id}`)}>
-            ← 이전 공모전
-          </button>
-        )}
-        {nextContest && (
-          <button className="next-button"
-          onClick={() => navigate(`/contest/${nextContest.id}`)}>
-            다음 공모전 →
-          </button>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div className="view-mode">
+          <h1 className="contest-title">{contest.title}</h1>
+          <div className="detail-box">
+            {contest.imageUrl && (
+              <img
+                src={contest.imageUrl}
+                alt="Uploaded"
+                className="detail-image"
+              />
+            )}
+            <div className="detail-info">
+              <p><span>분야:</span> {contest.field}</p>
+              <p><span>응모 대상:</span> {contest.targetAudience}</p>
+              <p><span>주최:</span> {contest.organizer}</p>
+              <p><span>상태:</span> {contest.status}</p>
+              <p><span>마감일:</span> {contest.deadline}</p>
+              <p><span>조회수:</span> {contest.views}</p>
+              <p><span>총 상금:</span> {contest.totalPrize}</p>
+              <p><span>1등 상금:</span> {contest.firstPrize}</p>
+              <p><span>홈페이지:</span> <a href={contest.website} target="_blank" rel="noopener noreferrer">{contest.website}</a></p>
+            </div>
+          </div>
+          <div className="contest-content">{contest.content}</div>
+          {contest.imageUrl && (
+            <div className="large-image-section">
+              <img src={contest.imageUrl} alt="Contest Visual" className="large-detail-image" />
+            </div>
+          )}
+          <div className="button-container">
+            <button className="edit-button" onClick={handleEditToggle}>
+              게시글 수정
+            </button>
+            <button className="delete-button" onClick={handleDelete}>
+              게시글 삭제
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
-};
+}
 
 export default ContestDetail;
