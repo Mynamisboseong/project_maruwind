@@ -1,39 +1,64 @@
 .notice-add-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .notice-add-page h2 {
-    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 40px;
+    margin-top: 30px;
 }
 
 .form-container {
-    width: 100%;
-    max-width: 600px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
-input[type="text"], textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.file-input-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.file-input-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-input-text {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-}
-
-textarea {
-    resize: none;
-    height: 150px;
-}
-
-input[type="file"] {
-    font-size: 14px;
+    padding: 10px;
+    display: inline-block;
+    cursor: pointer;
 }
 
 .image-preview-container {
@@ -45,38 +70,30 @@ input[type="file"] {
 
 .image-preview {
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border: 1px solid #ddd;
     border-radius: 5px;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .image-preview img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
 .image-preview button {
     position: absolute;
-    top: 2px;
-    right: 2px;
+    top: 5px;
+    right: 5px;
     background: rgba(255, 255, 255, 0.8);
     border: none;
-    font-size: 10px;
+    font-size: 12px;
     color: #333;
     cursor: pointer;
-    padding: 2px 5px;
+    padding: 3px 6px;
     border-radius: 3px;
-    transition: background 0.3s ease;
-}
-
-.image-preview button:hover {
-    background: rgba(255, 255, 255, 1);
 }
 
 .button-group {
@@ -86,22 +103,30 @@ input[type="file"] {
     margin-top: 20px;
 }
 
-button {
+.button-group button {
     padding: 10px 20px;
+    font-size: 1rem;
     border: none;
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #0056b3;
+.button-group button:first-child {
+    background-color: #00acae;
+    color: white;
 }
 
-button:disabled {
+.button-group button:last-child {
+    background-color: #6c757d;
+    color: white;
+}
+
+.button-group button:hover {
+    opacity: 0.9;
+}
+
+.button-group button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }

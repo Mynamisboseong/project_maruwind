@@ -82,43 +82,59 @@ function NoticeAdd() {
         <div className="notice-add-page">
             <h2>새 공지사항 작성</h2>
             <div className="form-container">
-                <input
-                    type="text"
-                    name="title"
-                    placeholder="제목"
-                    value={newNotice.title}
-                    onChange={handleInputChange}
-                />
-                <input
-                    type="text"
-                    name="author"
-                    placeholder="작성자"
-                    value={newNotice.author}
-                    onChange={handleInputChange}
-                />
-                <textarea
-                    name="content"
-                    placeholder="내용"
-                    value={newNotice.content}
-                    onChange={handleInputChange}
-                />
-                <input
-                    type="file"
-                    accept="image/*"
-                    multiple
-                    onChange={handleImageChange}
-                />
-
-                {/* 이미지 미리보기 */}
-                <div className="image-preview-container">
-                    {previewURLs.map((url, index) => (
-                        <div key={index} className="image-preview">
-                            <img src={url} alt={`preview-${index}`} />
-                            <button onClick={() => handleRemoveImage(index)}>삭제</button>
-                        </div>
-                    ))}
+                <div className="input-group">
+                    <label htmlFor="title">제목</label>
+                    <input
+                        id="title"
+                        type="text"
+                        name="title"
+                        value={newNotice.title}
+                        onChange={handleInputChange}
+                    />
                 </div>
+                <div className="input-group">
+                    <label htmlFor="author">작성자</label>
+                    <input
+                        id="author"
+                        type="text"
+                        name="author"
+                        value={newNotice.author}
+                        onChange={handleInputChange}
+                    />
+                </div>
+                <div className="input-group">
+                    <label htmlFor="content">내용</label>
+                    <textarea
+                        id="content"
+                        name="content"
+                        value={newNotice.content}
+                        onChange={handleInputChange}
+                    />
+                </div>
+                <div className="input-group">
+    <label htmlFor="images">이미지 첨부</label>
+    <div className="file-input-wrapper">
+        <input
+            id="images"
+            type="file"
+            accept="image/*"
+            multiple
+            onChange={handleImageChange}
+        />
+        <span className="file-input-text">파일 선택</span>
+    </div>
+</div>
 
+{/* 이미지 미리보기 */}
+<div className="image-preview-container">
+    {previewURLs.map((url, index) => (
+        <div key={index} className="image-preview">
+            <img src={url} alt={`preview-${index}`} />
+            <button onClick={() => handleRemoveImage(index)}>삭제</button>
+        </div>
+    ))}
+</div>
+    
                 <div className="button-group">
                     <button onClick={handleAddNotice} disabled={isLoading}>
                         {isLoading ? '추가 중...' : '추가'}
