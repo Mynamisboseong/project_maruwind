@@ -14,7 +14,6 @@ function ContestDetail() {
     title: "",
     organizer: "",
     author: "",
-    status: "",
     deadline: "",
     content: "",
     field: "",
@@ -66,7 +65,23 @@ function ContestDetail() {
 
   const handleEditChange = (e) => {
     const { name, value } = e.target;
-    setEditedContent({ ...editedContent, [name]: value });
+
+    if (name === "deadline") {
+      // 상태 자동 계산
+      const today = new Date();
+      const selectedDate = new Date(value);
+      const timeDifference = selectedDate - today;
+      const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+      let newStatus = "마감";
+      if (daysDifference > 0) {
+        newStatus = `D-${daysDifference}`;
+      }
+
+      setEditedContent({ ...editedContent, [name]: value, status: newStatus });
+    } else {
+      setEditedContent({ ...editedContent, [name]: value });
+    }
   };
 
   const handleImageUpload = async () => {
@@ -169,13 +184,6 @@ function ContestDetail() {
             value={editedContent.website}
             onChange={handleEditChange}
             placeholder="홈페이지"
-          />
-          <input
-            type="text"
-            name="status"
-            value={editedContent.status}
-            onChange={handleEditChange}
-            placeholder="상태"
           />
           <input
             type="date"

@@ -194,3 +194,30 @@ body {
 .contest-link:hover {
   text-decoration: underline;
 }
+
+/* 상태가 "마감"일 때 빨간색 */
+.status-cell.closed {
+  color: red;
+  font-weight: bold;
+}
+
+/* 마감임박 상태 텍스트 스타일 */
+.status-cell.urgent {
+  color: black;
+  font-weight: bold;
+}
+
+.status-cell .urgent-text {
+  margin-left: 5px;
+  font-size: 0.9rem;
+  color: orange;
+  font-weight: bold;
+}
+
+/* 진행중 상태 텍스트 스타일 */
+.status-cell .in-progress-text {
+  margin-left: 5px;
+  font-size: 0.9rem;
+  color: green;
+  font-weight: bold;
+}
