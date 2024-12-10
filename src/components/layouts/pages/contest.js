@@ -115,18 +115,35 @@ function Contest() {
             </tr>
           </thead>
           <tbody>
-            {filteredContests.map((contest) => (
-              <tr
-                key={contest.id}
-                className="contest-row"
-                onClick={() => (window.location.href = `/contest/${contest.id}`)}
-              >
-                <td>{contest.title}</td>
-                <td>{contest.organizer}</td>
-                <td>{contest.status}</td>
-                <td>{contest.views}</td>
-              </tr>
-            ))}
+            {filteredContests.map((contest) => {
+              const isClosed = contest.status === '마감'; // 상태가 마감인지 확인
+              const isInProgress = contest.status.startsWith('D-'); // 상태가 진행중인지 확인
+              const isUrgent =
+                isInProgress && parseInt(contest.status.split('-')[1], 10) <= 7; // 마감임박인지 확인
+
+              return (
+                <tr
+                  key={contest.id}
+                  className="contest-row"
+                  onClick={() => (window.location.href = `/contest/${contest.id}`)}
+                >
+                  <td>{contest.title}</td>
+                  <td>{contest.organizer}</td>
+                  <td
+                    className={`status-cell ${isClosed ? 'closed' : ''} ${
+                      isUrgent ? 'urgent' : ''
+                    }`}
+                  >
+                    {contest.status}
+                    {isUrgent && <span className="urgent-text"> 마감임박</span>}
+                    {isInProgress && !isUrgent && (
+                      <span className="in-progress-text"> 진행중</span>
+                    )}
+                  </td>
+                  <td>{contest.views}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

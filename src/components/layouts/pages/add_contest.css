@@ -1,0 +1,88 @@
+.add-contest-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #fafafa; /* 배경색 설정 */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 80px;
+  margin-top: 30px;
+}
+
+.add-contest-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.add-contest-form label {
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: left; /* 레이블 텍스트 좌측 정렬 */
+}
+
+.add-contest-form label[for='title'],
+.add-contest-form label[for='content'] {
+  text-align: left;
+}
+
+/* 입력 필드 섹션 */
+.input-group {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.input-group label {
+  flex: 1;
+  min-width: 150px;
+  text-align: left; /* 레이블 텍스트를 왼쪽 정렬 */
+}
+
+.add-contest-form input,
+.add-contest-form textarea,
+.add-contest-form button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* 텍스트 필드 */
+.add-contest-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* 버튼 스타일 */
+.add-contest-form button {
+  background-color: #00acae;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.add-contest-form button:hover {
+  background-color: #007779;
+}
+
+.status-display {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #555;
+}
