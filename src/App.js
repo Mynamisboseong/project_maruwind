@@ -12,6 +12,8 @@ import ShapeExample from './components/layouts/campaign_images.js'
 import HomeIntroduce from './components/layouts/HomeIntroduce'
 import Notice from './components/layouts/notice.js'
 import NoticeDetail from './components/layouts/notice_detail.js'
+import NoticeAdd from './components/layouts/notice_add.js';
+import NoticeEdit from './components/layouts/notice_edit.js'
 import NewsPage from './components/layouts/pages/news.js'
 import ChallengePageExample from './components/layouts/pages/challenge_page.js'
 import Contest from './components/layouts/pages/contest.js'
@@ -49,6 +51,8 @@ function App() {
           <Route path="/introduce" element={<HomeIntroduce />} />
           <Route path="/notice" element={<Notice />} />
           <Route path="/notice/:id" element={<NoticeDetail />} />
+          <Route path="/notice_add" element={<NoticeAdd />} />
+          <Route path="/notice/edit/:id" element={<NoticeEdit />} />
         </Routes>
       </div>
       <FooterExample /> {/* 항상 하단에 표시 */}

@@ -139,3 +139,47 @@
     background: #f44336;
     color: white;
 }
+.notice-actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.back-button,
+.edit-button,
+.delete-button {
+    display: inline-block;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 7px 12px;
+    font-size: 17px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.back-button {
+    background-color: #00acae;
+}
+
+.edit-button {
+    background-color: #ffc107;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+.edit-button:hover {
+    background-color: #e0a800;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}

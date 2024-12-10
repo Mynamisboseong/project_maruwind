@@ -1,181 +1,139 @@
-/* 공지사항 페이지 전체 레이아웃 */
+/* 페이지 기본 스타일 초기화 */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* 공지사항 페이지 전체 컨테이너 */
 .notice-page {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  font-family: 'Noto Sans', sans-serif;
 }
 
-/* 페이지 제목 스타일 */
+/* 공지사항 헤더 */
 .notice-title {
-  font-size: 24px;
+  text-align: center;
+  font-size: 2rem;
   font-weight: bold;
+  color: #333;
   margin-bottom: 20px;
 }
 
-.notice-title span {
-  color: #007bff;
-  margin-left: 10px;
-}
-
-/* 검색 바 스타일 */
-.notice-search {
-  display: flex;
+/* 글 작성 버튼 */
+.add-contest-button {
+  text-align: right;
   margin-bottom: 20px;
 }
 
-.notice-search input {
-  flex: 1;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.notice-search button {
-  padding: 10px;
-  font-size: 16px;
-  background-color: #007bff;
+.add-contest-button button {
+  background-color: #00acae;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
+  padding: 7px 12px;
   cursor: pointer;
-  margin-left: 10px;
+  font-size: 17px;
 }
 
-.notice-search button:hover {
+.add-contest-button button:hover {
   background-color: #0056b3;
 }
 
-/* 테이블 스타일 */
+/* 공지사항 테이블 */
 .notice-table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
 }
 
-.notice-table th, 
+.notice-table th,
 .notice-table td {
   padding: 15px;
   text-align: left;
-  border: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
 .notice-table th {
-  background-color: #f8f9fa;
+  background-color: #f9f9f9;
   font-weight: bold;
 }
 
-.notice-table tr:nth-child(even) {
-  background-color: #f2f2f2;
+.notice-table tbody tr {
+  transition: all 0.3s ease;
+  background-color: #fff;
 }
 
-.notice-table tr:hover {
+.notice-table tbody tr:hover {
+  background-color: #f9f9f9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* 테이블 열 너비 조정 */
+.notice-table th:nth-child(1),
+.notice-table td:nth-child(1) {
+  width: 10%;
+}
+
+.notice-table th:nth-child(2),
+.notice-table td:nth-child(2) {
+  width: 50%;
+}
+
+.notice-table th:nth-child(3),
+.notice-table td:nth-child(3),
+.notice-table th:nth-child(4),
+.notice-table td:nth-child(4) {
+  width: 20%;
+}
+
+/* 클릭 가능한 행 스타일 */
+.notice-table tbody tr.clickable-row {
+  cursor: pointer;
+}
+
+.notice-table tbody tr.clickable-row:hover {
   background-color: #e9ecef;
 }
 
-.notice-table a {
-  color: #007bff;
-  text-decoration: none;
+/* 텍스트 오버플로우 처리 */
+.notice-table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 0;
 }
 
-.notice-table a:hover {
-  text-decoration: underline;
+/* 짝수 행 배경색 지정 */
+.notice-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
-/* 페이지네이션 스타일 */
-.notice-pagination {
+/* 짝수 행에 호버 효과 적용 시 배경색 변경 */
+.notice-table tbody tr:nth-child(even):hover {
+  background-color: #e9ecef;
+}
+
+.search-bar-container {
   display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  justify-content: space-between; /* 왼쪽과 오른쪽 정렬 */
+  align-items: center; /* 수직 정렬 */
+  margin-bottom: 20px;
 }
 
-.notice-pagination button {
-  margin: 0 5px;
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  background-color: white;
-  color: #007bff;
-  cursor: pointer;
-  border-radius: 4px;
+.search-label {
+  font-weight: bold;
+  margin-right: 10px;
 }
 
-.notice-pagination button:hover {
-  background-color: #f8f9fa;
-}
-
-.notice-pagination button.active {
-  background-color: #007bff;
-  color: white;
-  border-color: #007bff;
-}
-
-/* 모달 배경 */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-/* 모달 내용 */
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 400px;
-  max-width: 90%;
-}
-
-.modal-content h3 {
-  margin-top: 0;
-  font-size: 18px;
-}
-
-.modal-content input, 
-.modal-content textarea {
-  width: 100%;
+.search-input {
   padding: 10px;
-  margin-bottom: 10px;
   border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.modal-content button {
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.modal-content button:hover {
-  background-color: #0056b3;
-}
-
-.modal-content button:nth-child(2) {
-  background-color: #6c757d;
-  margin-left: 10px;
-}
-
-.modal-content button:nth-child(2):hover {
-  background-color: #5a6268;
-}
-
-button {
-  padding: 12px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button:hover {
-  opacity: 0.9;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 300px;
 }
