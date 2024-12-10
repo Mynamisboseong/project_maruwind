@@ -17,7 +17,6 @@ import ChallengePageExample from './components/layouts/pages/challenge_page.js'
 import Contest from './components/layouts/pages/contest.js'
 import AddContest from './components/layouts/pages/add_contest.js'
 import ContestDetail from './components/layouts/pages/contest_detail.js'
-
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
@@ -26,46 +25,36 @@ function App() {
     <div className="App">
       <BrandExample />
       <LogoBrandExample />
-      <BasicExample /> {/* 네비게이션 메뉴는 항상 표시 */}
-      <Routes>
-        {/* 메인 페이지 */}
-        <Route
-          path="/"
-          element={
-            <>
-              <UncontrolledExample />
-              <GraphExample />
-              <GraphtrashExample />
-              <FluidExample />
-              <ShapeExample />
-              <ChallengeExample />
-            </>
-          }
-        />
-
-        {/* 공모전 페이지 */}
-        <Route path="/contest" element={<Contest />} />
-
-        {/* 공모전 글쓰기 페이지 (새로운 라우팅 추가) */}
-        <Route path="/contest/add" element={<AddContest />} />
-
-        {/* 게시글 상세보기 경로 */}
-        <Route path="/contest/:id" element={<ContestDetail />} />
-
-        {/* 뉴스/보도자료 페이지 */}
-        <Route path="/news" element={<NewsPage />} />
-
-        {/* SNS 챌린지 페이지 */}
-        <Route path="/challenge" element={<ChallengePageExample />} />
-
-        {/* 소개 페이지 */}
-        <Route path="/introduce" element={<HomeIntroduce />} />
-        <Route path="/notice" element={<Notice />} />
-        <Route path="/notice/:id" element={<NoticeDetail />} />
-      </Routes>
-      <FooterExample /> {/* 푸터는 모든 페이지에 표시 */}
+      <BasicExample /> {/* 네비게이션 메뉴 */}
+      <div style={{ flex: 1 }}> {/* 콘텐츠가 남는 공간을 채움 */}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <UncontrolledExample />
+                <GraphExample />
+                <GraphtrashExample />
+                <FluidExample />
+                <ShapeExample />
+                <ChallengeExample />
+              </>
+            }
+          />
+          <Route path="/contest" element={<Contest />} />
+          <Route path="/contest/add" element={<AddContest />} />
+          <Route path="/contest/:id" element={<ContestDetail />} />
+          <Route path="/news" element={<NewsPage />} />
+          <Route path="/challenge" element={<ChallengePageExample />} />
+          <Route path="/introduce" element={<HomeIntroduce />} />
+          <Route path="/notice" element={<Notice />} />
+          <Route path="/notice/:id" element={<NoticeDetail />} />
+        </Routes>
+      </div>
+      <FooterExample /> {/* 항상 하단에 표시 */}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
+

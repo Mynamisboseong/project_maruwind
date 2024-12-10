@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { collection, onSnapshot } from 'firebase/firestore'
-import { db } from '../../../firebase' // Firebase 초기화 경로
-import './contest.css'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { collection, onSnapshot } from 'firebase/firestore';
+import { db } from '../../../firebase'; // Firebase 초기화 경로
+import './contest.css';
 
 function Contest() {
-  const [contests, setContests] = useState([]) // Firestore 데이터 저장
-  const [filter, setFilter] = useState('전체') // 필터 상태
-  const [loading, setLoading] = useState(true) // 로딩 상태 추가
-  const [searchQuery, setSearchQuery] = useState('') // 검색 상태
+  const [contests, setContests] = useState([]); // Firestore 데이터 저장
+  const [filter, setFilter] = useState('전체'); // 필터 상태
+  const [loading, setLoading] = useState(true); // 로딩 상태 추가
+  const [searchQuery, setSearchQuery] = useState(''); // 검색 상태
 
   // Firestore에서 데이터 가져오기
   useEffect(() => {
@@ -16,27 +16,35 @@ function Contest() {
       const fetchedContests = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
-      }))
-      setContests(fetchedContests)
-      setLoading(false) // 로딩 완료
-    })
+      }));
+      setContests(fetchedContests);
+      setLoading(false); // 로딩 완료
+    });
 
-    return () => unsubscribe() // 컴포넌트가 언마운트되면 구독 해제
-  }, [])
+    return () => unsubscribe(); // 컴포넌트가 언마운트되면 구독 해제
+  }, []);
 
   // 필터링된 데이터
   const filteredContests = contests.filter((contest) => {
     const matchesFilter =
-      filter === '전체' ? true : contest.category.includes(filter)
+      filter === '전체'
+        ? true
+        : filter === '진행중'
+        ? contest.status && contest.status.startsWith('D-')
+        : filter === '마감'
+        ? contest.status === '마감'
+        : false;
+
     const matchesSearch =
       contest.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      contest.organizer.toLowerCase().includes(searchQuery.toLowerCase())
-    return matchesFilter && matchesSearch
-  })
+      contest.organizer.toLowerCase().includes(searchQuery.toLowerCase());
+
+    return matchesFilter && matchesSearch;
+  });
 
   // 로딩 중 표시
   if (loading) {
-    return <div className="loading">로딩 중...</div>
+    return <div className="loading">로딩 중...</div>;
   }
 
   return (
@@ -111,9 +119,7 @@ function Contest() {
               <tr
                 key={contest.id}
                 className="contest-row"
-                onClick={() =>
-                  (window.location.href = `/contest/${contest.id}`)
-                }
+                onClick={() => (window.location.href = `/contest/${contest.id}`)}
               >
                 <td>{contest.title}</td>
                 <td>{contest.organizer}</td>
@@ -125,7 +131,7 @@ function Contest() {
         </table>
       </div>
     </div>
-  )
+  );
 }
 
-export default Contest
+export default Contest;
