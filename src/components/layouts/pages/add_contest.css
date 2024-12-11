@@ -64,7 +64,7 @@
 /* 텍스트 필드 */
 .add-contest-form textarea {
   resize: vertical;
-  min-height: 150px;
+  min-height: 800px; /* 텍스트박스의 최소 높이를 더 크게 설정 */
 }
 
 /* 버튼 스타일 */
