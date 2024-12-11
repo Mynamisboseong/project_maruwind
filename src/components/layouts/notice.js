@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs, Timestamp } from 'firebase/firestore';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { db } from '../../firebase';
 import './notice.css';
@@ -7,7 +8,18 @@ import './notice.css';
 function Notice() {
     const [notices, setNotices] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
+    const [user, setUser] = useState(null);
     const navigate = useNavigate();
+    const auth = getAuth();
+
+    useEffect(() => {
+        // 사용자 인증 상태 감시
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+
+        return () => unsubscribe();
+    }, []);
 
     useEffect(() => {
         const fetchNotices = async () => {
@@ -44,20 +56,22 @@ function Notice() {
         <div className="notice-page">
             <h2 className="notice-title">공지사항</h2>
             <div className="notice-search-bar-container">
-            <div className="notice-search-wrapper">
-    <span className="notice-search-icon">검색🔍</span>
-    <input
-        type="text"
-        className="notice-search-input"
-        placeholder="제목 또는 작성자 검색"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-    />
-</div>
-    <div className="notice-add-button right-align">
-        <button onClick={handleAddNotice}>글 작성하기</button>
-    </div>
-</div>
+                <div className="notice-search-wrapper">
+                    <span className="notice-search-icon">검색🔍</span>
+                    <input
+                        type="text"
+                        className="notice-search-input"
+                        placeholder="제목 또는 작성자 검색"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                </div>
+                {user && ( // 관리자 로그인 시에만 글쓰기 버튼 표시
+                    <div className="notice-add-button right-align">
+                        <button onClick={handleAddNotice}>글 작성하기</button>
+                    </div>
+                )}
+            </div>
 
             <table className="notice-table">
                 <thead>
@@ -70,7 +84,11 @@ function Notice() {
                 </thead>
                 <tbody>
                     {filteredNotices.map((notice, index) => (
-                        <tr key={notice.id} onClick={() => handleRowClick(notice.id)} className="notice-clickable-row">
+                        <tr 
+                            key={notice.id} 
+                            onClick={() => handleRowClick(notice.id)} 
+                            className="notice-clickable-row"
+                        >
                             <td>{index + 1}</td>
                             <td>{notice.title}</td>
                             <td>{notice.author}</td>

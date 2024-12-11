@@ -19,6 +19,7 @@ import ChallengePageExample from './components/layouts/pages/challenge_page.js'
 import Contest from './components/layouts/pages/contest.js'
 import AddContest from './components/layouts/pages/add_contest.js'
 import ContestDetail from './components/layouts/pages/contest_detail.js'
+import AdminLogin from './components/layouts/AdminLogin.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
@@ -53,6 +54,7 @@ function App() {
           <Route path="/notice/:id" element={<NoticeDetail />} />
           <Route path="/notice_add" element={<NoticeAdd />} />
           <Route path="/notice/edit/:id" element={<NoticeEdit />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
         </Routes>
       </div>
       <FooterExample /> {/* 항상 하단에 표시 */}

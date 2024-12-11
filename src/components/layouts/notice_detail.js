@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { doc, getDoc, deleteDoc, Timestamp } from 'firebase/firestore';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { db } from '../../firebase';
 import './notice_detail.css';
 
 function NoticeDetail() {
-    const { id } = useParams(); // URL에서 공지사항 ID 가져오기
+    const { id } = useParams();
     const navigate = useNavigate();
     const [notice, setNotice] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [user, setUser] = useState(null);
+    const auth = getAuth();
+
     const formatDate = (timestamp) => {
         if (timestamp instanceof Timestamp) {
             return timestamp.toDate().toLocaleString('ko-KR', {
@@ -23,12 +27,20 @@ function NoticeDetail() {
     };
 
     useEffect(() => {
+        // 사용자 인증 상태 감시
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+
+        return () => unsubscribe();
+    }, []);
+
+    useEffect(() => {
         const fetchNoticeData = async () => {
             setLoading(true);
             setError(null);
 
             try {
-                // 현재 공지사항 가져오기
                 const docRef = doc(db, 'notices', id);
                 const docSnap = await getDoc(docRef);
 
@@ -36,11 +48,9 @@ function NoticeDetail() {
                     setNotice({ id: docSnap.id, ...docSnap.data() });
                 } else {
                     setError('공지사항을 찾을 수 없습니다.');
-                    navigate('/notice'); // 공지사항 목록으로 리다이렉트
+                    navigate('/notice');
                     return;
                 }
-
-                
             } catch (error) {
                 console.error('공지사항 데이터를 가져오는 중 오류가 발생했습니다:', error);
                 setError('공지사항 데이터를 불러오는 중 오류가 발생했습니다.');
@@ -80,11 +90,11 @@ function NoticeDetail() {
         <div className="notice-detail">
             <h1 className="notice-title">{notice.title}</h1>
             <div className="notice-info">
-    <p>
-        <strong>{notice.author}</strong>
-    </p>
-    <p>{formatDate(notice.createdAt)}</p>
-</div>
+                <p>
+                    <strong>{notice.author}</strong>
+                </p>
+                <p>{formatDate(notice.createdAt)}</p>
+            </div>
             <div className="notice-content">
                 <p>{notice.content}</p>
                 {notice.images && notice.images.length > 0 && (
@@ -103,8 +113,12 @@ function NoticeDetail() {
 
             <div className="notice-actions">
                 <Link to="/notice" className="back-button">목록으로 돌아가기</Link>
-                <button onClick={handleEdit} className="edit-button">수정</button>
-                <button onClick={handleDelete} className="delete-button">삭제</button>
+                {user && ( // 관리자 로그인 시에만 수정/삭제 버튼 표시
+                    <>
+                        <button onClick={handleEdit} className="edit-button">수정</button>
+                        <button onClick={handleDelete} className="delete-button">삭제</button>
+                    </>
+                )}
             </div>
         </div>
     );

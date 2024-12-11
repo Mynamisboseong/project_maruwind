@@ -1,75 +1,68 @@
-import Container from 'react-bootstrap/Container'
-import Navbar from 'react-bootstrap/Navbar'
-import './icon_brand.css' // 필요한 추가 스타일 정의
+import { useEffect, useState } from 'react';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { useLocation } from 'react-router-dom';  // 추가
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import './icon_brand.css';
 
 function BrandExample() {
+    const [user, setUser] = useState(null);
+    const auth = getAuth();
+    const location = useLocation();  // 현재 경로 확인을 위해 추가
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+
+        return () => unsubscribe();
+    }, []);
+
+    const handleLogout = async () => {
+        try {
+            await signOut(auth);
+        } catch (error) {
+            console.error('로그아웃 오류:', error);
+        }
+    };
+
+    // 로그인 페이지에서는 로그인/로그아웃 버튼을 숨김
+    const showAuthButton = location.pathname !== '/admin/login';
+
     return (
         <Navbar className="bg-body-tertiary">
-            <Container fluid className="p-0">
-                {' '}
-                {/* margin/padding을 제거하고 전체 너비 사용 */}
+            <Container fluid className="p-0 d-flex justify-content-between">
                 <div className="d-flex align-items-center icon-container">
-                    {/* 홈페이지 로고 */}
-                    <Navbar.Brand
-                        href="http://localhost:3000/"
-                        className="me-3"
-                    >
-                        <img
-                            src="/home.png"
-                            width="24"
-                            height="24"
-                            className="d-inline-block align-top"
-                            alt="Home"
-                        />
-                    </Navbar.Brand>
-
-                    {/* 인스타그램 로고 */}
-                    <Navbar.Brand
-                        href="https://www.instagram.com"
-                        target="_blank"
-                        className="me-3"
-                    >
-                        <img
-                            width="24"
-                            height="24"
-                            src="https://img.icons8.com/color/48/instagram-new--v1.png"
-                            className="d-inline-block align-top"
-                            alt="Instagram"
-                        />
-                    </Navbar.Brand>
-
-                    {/* 페이스북 로고 */}
-                    <Navbar.Brand
-                        href="https://www.facebook.com"
-                        target="_blank"
-                        className="me-3"
-                    >
-                        <img
-                            width="24"
-                            height="24"
-                            src="https://img.icons8.com/color/48/facebook-new.png"
-                            className="d-inline-block align-top"
-                            alt="Facebook"
-                        />
-                    </Navbar.Brand>
-
-                    {/* 유튜브 로고 */}
-                    <Navbar.Brand
-                        href="https://www.youtube.com"
-                        target="_blank"
-                    >
-                        <img
-                            width="24"
-                            height="24"
-                            src="https://img.icons8.com/color/48/youtube-play.png"
-                            className="d-inline-block align-top"
-                            alt="YouTube"
-                        />
-                    </Navbar.Brand>
+                    {/* 기존 로고들... */}
                 </div>
+                
+                {showAuthButton && (
+                    <div className="d-flex align-items-center">
+                        {user ? (
+                            <div className="d-flex flex-column align-items-end">
+                                <Navbar.Brand className="login-info">
+                                    관리자님 환영합니다
+                                </Navbar.Brand>
+                                <button 
+                                    onClick={handleLogout} 
+                                    className="logout-button"
+                                >
+                                    로그아웃
+                                </button>
+                            </div>
+                        ) : (
+                            <Navbar.Brand 
+                                href="/admin/login" 
+                                className="login-button"
+                            >
+                                관리자로그인
+                            </Navbar.Brand>
+                        )}
+                    </div>
+                )}
             </Container>
         </Navbar>
-    )
+    );
 }
 
-export default BrandExample
+export default BrandExample;
