@@ -44,20 +44,20 @@ function Notice() {
         <div className="notice-page">
             <h2 className="notice-title">공지사항</h2>
             <div className="notice-search-bar-container">
-                <label className="notice-search-label">
-                <span className="notice-search-icon">검색🔍</span>
-                    <input
-                        type="text"
-                        className="notice-search-input"
-                        placeholder="제목 또는 작성자 검색"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                    />
-                </label>
-                <div className="notice-add-button right-align">
-                    <button onClick={handleAddNotice}>글 작성하기</button>
-                </div>
-            </div>
+            <div className="notice-search-wrapper">
+    <span className="notice-search-icon">검색🔍</span>
+    <input
+        type="text"
+        className="notice-search-input"
+        placeholder="제목 또는 작성자 검색"
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+    />
+</div>
+    <div className="notice-add-button right-align">
+        <button onClick={handleAddNotice}>글 작성하기</button>
+    </div>
+</div>
 
             <table className="notice-table">
                 <thead>
