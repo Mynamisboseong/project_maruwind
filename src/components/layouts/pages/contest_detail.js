@@ -1,32 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { doc, getDoc, deleteDoc, updateDoc } from "firebase/firestore";
-import { db } from "../../../firebase";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import React, { useEffect, useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import { doc, getDoc, deleteDoc, updateDoc } from 'firebase/firestore'
+import { db } from '../../../firebase'
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import "./contest_detail.css";
+import './contest_detail.css'
 
 function ContestDetail() {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const [contest, setContest] = useState(null);
-  const [isEditing, setIsEditing] = useState(false);
+  const { id } = useParams()
+  const navigate = useNavigate()
+  const [contest, setContest] = useState(null)
+  const [isEditing, setIsEditing] = useState(false)
   const [user, setUser] = useState(null);
   const auth = getAuth();
   const [editedContent, setEditedContent] = useState({
-    title: "",
-    organizer: "",
-    author: "",
-    deadline: "",
-    content: "",
-    field: "",
-    targetAudience: "",
-    totalPrize: "",
-    firstPrize: "",
-    website: "",
-    imageUrl: "",
-  });
-  const [selectedImage, setSelectedImage] = useState(null);
+    title: '',
+    organizer: '',
+    author: '',
+    deadline: '',
+    content: '',
+    field: '',
+    targetAudience: '',
+    totalPrize: '',
+    firstPrize: '',
+    website: '',
+    imageUrl: '',
+  })
+  const [selectedImage, setSelectedImage] = useState(null)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -39,85 +39,90 @@ function ContestDetail() {
   useEffect(() => {
     const fetchContest = async () => {
       try {
-        const docRef = doc(db, "contests", id);
-        const docSnap = await getDoc(docRef);
+        const docRef = doc(db, 'contests', id)
+        const docSnap = await getDoc(docRef)
 
         if (docSnap.exists()) {
-          setContest(docSnap.data());
-          setEditedContent(docSnap.data());
+          setContest(docSnap.data())
+          setEditedContent(docSnap.data())
         } else {
-          console.error("No such document!");
+          console.error('No such document!')
         }
       } catch (error) {
-        console.error("Error fetching document: ", error);
+        console.error('Error fetching document: ', error)
       }
-    };
+    }
 
-    fetchContest();
-  }, [id]);
+    fetchContest()
+  }, [id])
 
   const handleDelete = async () => {
-    const confirmDelete = window.confirm("이 게시글을 삭제하시겠습니까?");
+    const confirmDelete = window.confirm('이 게시글을 삭제하시겠습니까?')
     if (confirmDelete) {
       try {
-        await deleteDoc(doc(db, "contests", id));
-        alert("게시글이 삭제되었습니다.");
-        navigate("/contest");
+        await deleteDoc(doc(db, 'contests', id))
+        alert('게시글이 삭제되었습니다.')
+        navigate('/contest')
       } catch (error) {
-        console.error("Error deleting document: ", error);
-        alert("게시글 삭제에 실패했습니다.");
+        console.error('Error deleting document: ', error)
+        alert('게시글 삭제에 실패했습니다.')
       }
     }
-  };
+  }
 
   const handleEditToggle = () => {
-    setIsEditing(!isEditing);
-  };
+    setIsEditing(!isEditing)
+    window.scrollTo({ top: 0, behavior: 'smooth' }) // 화면 최상단으로 이동
+  }
 
   const handleEditChange = (e) => {
-    const { name, value } = e.target;
-    setEditedContent({ ...editedContent, [name]: value });
-  };
+    const { name, value } = e.target
+    setEditedContent({ ...editedContent, [name]: value })
+  }
 
   const handleEditSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    let imageUrl = editedContent.imageUrl;
+    e.preventDefault()
+    try {
+      let imageUrl = editedContent.imageUrl
 
-    if (selectedImage) {
-      const storage = getStorage();
-      const storageRef = ref(storage, `contest-images/${id}/${selectedImage.name}`);
-      await uploadBytes(storageRef, selectedImage);
-      imageUrl = await getDownloadURL(storageRef);
+      if (selectedImage) {
+        const storage = getStorage()
+        const storageRef = ref(
+          storage,
+          `contest-images/${id}/${selectedImage.name}`
+        )
+        await uploadBytes(storageRef, selectedImage)
+        imageUrl = await getDownloadURL(storageRef)
+      }
+
+      // 상태 계산 로직 추가
+      const today = new Date()
+      const deadlineDate = new Date(editedContent.deadline)
+      let status
+
+      if (deadlineDate < today) {
+        status = '마감'
+      } else {
+        const diffDays = Math.ceil(
+          (deadlineDate - today) / (1000 * 60 * 60 * 24)
+        )
+        status = `D-${diffDays}`
+      }
+
+      const updatedContent = { ...editedContent, imageUrl, status } // 상태 포함
+      const docRef = doc(db, 'contests', id)
+      await updateDoc(docRef, updatedContent)
+      setContest(updatedContent)
+      setIsEditing(false)
+      alert('게시글이 성공적으로 수정되었습니다.')
+    } catch (error) {
+      console.error('Error updating document: ', error)
+      alert('게시글 수정에 실패했습니다.')
     }
-
-    // 상태 계산 로직 추가
-    const today = new Date();
-    const deadlineDate = new Date(editedContent.deadline);
-    let status;
-
-    if (deadlineDate < today) {
-      status = "마감";
-    } else {
-      const diffDays = Math.ceil((deadlineDate - today) / (1000 * 60 * 60 * 24));
-      status = `D-${diffDays}`;
-    }
-
-    const updatedContent = { ...editedContent, imageUrl, status }; // 상태 포함
-    const docRef = doc(db, "contests", id);
-    await updateDoc(docRef, updatedContent);
-    setContest(updatedContent);
-    setIsEditing(false);
-    alert("게시글이 성공적으로 수정되었습니다.");
-  } catch (error) {
-    console.error("Error updating document: ", error);
-    alert("게시글 수정에 실패했습니다.");
   }
-};
-
 
   if (!contest) {
-    return <div className="loading">로딩 중...</div>;
+    return <div className="loading">로딩 중...</div>
   }
 
   return (
@@ -134,21 +139,48 @@ function ContestDetail() {
               />
             )}
             <div className="detail-info">
-              <p><span>분야:</span> {contest.field}</p>
-              <p><span>응모 대상:</span> {contest.targetAudience}</p>
-              <p><span>주최:</span> {contest.organizer}</p>
-              <p><span>상태:</span> {contest.status}</p>
-              <p><span>마감일:</span> {contest.deadline}</p>
-              <p><span>총 상금:</span> {contest.totalPrize}</p>
-              <p><span>1등 상금:</span> {contest.firstPrize}</p>
-              <p><span>홈페이지:</span> <a href={contest.website} target="_blank" rel="noopener noreferrer">{contest.website}</a></p>
+              <p>
+                <span>분야:</span> {contest.field}
+              </p>
+              <p>
+                <span>응모 대상:</span> {contest.targetAudience}
+              </p>
+              <p>
+                <span>주최:</span> {contest.organizer}
+              </p>
+              <p>
+                <span>상태:</span> {contest.status}
+              </p>
+              <p>
+                <span>마감일:</span> {contest.deadline}
+              </p>
+              <p>
+                <span>총 상금:</span> {contest.totalPrize}
+              </p>
+              <p>
+                <span>1등 상금:</span> {contest.firstPrize}
+              </p>
+              <p>
+                <span>홈페이지:</span>{' '}
+                <a
+                  href={contest.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {contest.website}
+                </a>
+              </p>
             </div>
           </div>
 
           <div className="contest-content">
             <h2>게시글 내용</h2>
             {/* 줄바꿈 문제 해결 */}
-            <p dangerouslySetInnerHTML={{ __html: contest.content.replace(/\n/g, "<br />") }} />
+            <p
+              dangerouslySetInnerHTML={{
+                __html: contest.content.replace(/\n/g, '<br />'),
+              }}
+            />
           </div>
 
           {contest.imageUrl && (
@@ -291,7 +323,9 @@ function ContestDetail() {
               </label>
             </div>
             <div className="button-container">
-              <button type="submit" className="submit-button">수정 완료</button>
+              <button type="submit" className="submit-button">
+                수정 완료
+              </button>
               <button
                 type="button"
                 className="cancel-button"
@@ -304,7 +338,7 @@ function ContestDetail() {
         </div>
       )}
     </div>
-  );
+  )
 }
 
-export default ContestDetail;
+export default ContestDetail

@@ -17,10 +17,11 @@ body {
 .contest-header {
   text-align: center;
   margin-bottom: 20px;
+  font-family: Noto Sans;
 }
 
 .contest-header h1 {
-  font-size: 2rem;
+  font-size: 2.7rem;
   font-weight: bold;
   color: #333;
   margin-bottom: 10px;
@@ -35,6 +36,37 @@ body {
   background-color: black;
 }
 
+/* 슬라이드 섹션 */
+.contest-slider {
+  position: relative;
+  width: 100%;
+  height: 400px; /* 슬라이드 높이 */
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.image-container img {
+  width: 300px; /* 고정된 너비 */
+  height: 300px; /* 고정된 높이 */
+  object-fit: cover; /* 이미지를 영역에 맞게 채움 */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 테이블 스타일 */
 .contest-table tbody tr {
   transition: all 0.3s ease;
   background-color: #fff;
@@ -245,3 +277,41 @@ body {
   color: green;
   font-weight: bold;
 }
+
+/* 페이지네이션 섹션 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pagination-button {
+  padding: 8px 12px;
+  font-size: 15px;
+  color: black;
+  border: 1px solid #5a5a5a;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pagination-button:hover {
+  background-color: #e23b6c;
+  color: white;
+}
+
+.pagination-button.active {
+  background-color: #e23b6c;
+  color: white;
+  border-color: #e23b6c;
+}
+
+.pagination-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
