@@ -2,8 +2,8 @@
     padding: 2rem;
     font-family: Arial, sans-serif;
     color: #333;
-    max-width: 900px; /* 너비를 900px로 설정 */
-    margin: 0 auto; /* 가운데 정렬 */
+    max-width: 900px;
+    margin: 0 auto;  /* 가운데 정렬 유지 */
 }
 
 .notice-title {
@@ -27,8 +27,9 @@
     line-height: 1.6;
     color: #333;
     margin: 1rem 0;
-    white-space: pre-line; 
-  }
+    white-space: pre-line;
+    text-align: left;  /* 왼쪽 정렬 추가 */
+}
 
 .notice-attachments {
     margin: 1.5rem 0;
@@ -146,40 +147,41 @@
     margin-top: 20px;
 }
 
-.back-button,
-.edit-button,
-.delete-button {
-    display: inline-block;
-    color: white;
+/* 버튼 기본 스타일 */
+.notice-detail-button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.notice-detail-edit-button {
+    padding: 10px 20px;
+    font-size: 1rem;
     border: none;
-    border-radius: 10px;
-    padding: 7px 12px;
-    font-size: 17px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: white;
+    font-weight: bold;
+    background-color: #007bff;
 }
 
-.back-button {
-    background-color: #00acae;
-}
-
-.edit-button {
-    background-color: #ffc107;
-}
-
-.delete-button {
+.notice-detail-delete-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: white;
+    font-weight: bold;
     background-color: #dc3545;
 }
 
-.back-button:hover {
+.notice-detail-edit-button:hover {
     background-color: #0056b3;
 }
 
-.edit-button:hover {
-    background-color: #e0a800;
-}
-
-.delete-button:hover {
-    background-color: #c82333;
+.notice-detail-delete-button:hover {
+    background-color: #a71d2a;
 }

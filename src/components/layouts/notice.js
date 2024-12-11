@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, getDocs, Timestamp } from 'firebase/firestore';
+import { collection, getDocs, Timestamp, query, orderBy } from 'firebase/firestore';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { db } from '../../firebase';
@@ -30,12 +30,14 @@ function Notice() {
                     ...doc.data(),
                     createdAt: doc.data().createdAt
                 }));
-                setNotices(noticesData);
+                // createdAt 기준으로 내림차순 정렬
+                const sortedNotices = noticesData.sort((a, b) => b.createdAt - a.createdAt);
+                setNotices(sortedNotices);
             } catch (error) {
                 console.error('공지사항 데이터를 가져오는 중 오류 발생:', error);
             }
         };
-
+    
         fetchNotices();
     }, []);
 
@@ -83,28 +85,30 @@ function Notice() {
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredNotices.map((notice, index) => (
-                        <tr 
-                            key={notice.id} 
-                            onClick={() => handleRowClick(notice.id)} 
-                            className="notice-clickable-row"
-                        >
-                            <td>{index + 1}</td>
-                            <td>{notice.title}</td>
-                            <td>{notice.author}</td>
-                            <td>
-                                {notice.createdAt instanceof Timestamp 
-                                    ? notice.createdAt.toDate().toLocaleString('ko-KR', {
-                                        year: 'numeric',
-                                        month: '2-digit',
-                                        day: '2-digit',
-                                        hour12: false
-                                      })
-                                    : 'N/A'}
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
+    {filteredNotices
+        .sort((a, b) => b.createdAt - a.createdAt) // 내림차순 정렬 (최신순)
+        .map((notice, index) => (
+            <tr 
+                key={notice.id} 
+                onClick={() => handleRowClick(notice.id)} 
+                className="notice-clickable-row"
+            >
+                <td>{filteredNotices.length - index}</td>
+                <td>{notice.title}</td>
+                <td>{notice.author}</td>
+                <td>
+                    {notice.createdAt instanceof Timestamp 
+                        ? notice.createdAt.toDate().toLocaleString('ko-KR', {
+                            year: 'numeric',
+                            month: '2-digit',
+                            day: '2-digit',
+                            hour12: false
+                          })
+                        : 'N/A'}
+                </td>
+            </tr>
+        ))}
+</tbody>
             </table>
         </div>
     );

@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { doc, getDoc, deleteDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import "./contest_detail.css";
 
 function ContestDetail() {
@@ -10,6 +11,8 @@ function ContestDetail() {
   const navigate = useNavigate();
   const [contest, setContest] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+  const [user, setUser] = useState(null);
+  const auth = getAuth();
   const [editedContent, setEditedContent] = useState({
     title: "",
     organizer: "",
@@ -24,6 +27,14 @@ function ContestDetail() {
     imageUrl: "",
   });
   const [selectedImage, setSelectedImage] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+        setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+}, []);
 
   useEffect(() => {
     const fetchContest = async () => {
@@ -150,15 +161,17 @@ function ContestDetail() {
             </div>
           )}
 
-          <div className="button-container">
-            <button className="edit-button" onClick={handleEditToggle}>
-              게시글 수정
-            </button>
-            <button className="delete-button" onClick={handleDelete}>
-              게시글 삭제
-            </button>
-          </div>
-        </>
+{user && (
+                        <div className="button-container">
+                            <button className="edit-button" onClick={handleEditToggle}>
+                                게시글 수정
+                            </button>
+                            <button className="delete-button" onClick={handleDelete}>
+                                게시글 삭제
+                            </button>
+                        </div>
+                    )}
+                </>
       ) : (
         <div className="edit-mode">
           <h2 className="page-title">게시글 수정</h2>

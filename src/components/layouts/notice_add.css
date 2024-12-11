@@ -119,25 +119,29 @@
 
 .notice-button-group button {
     padding: 10px 20px;
-    font-size: 1rem;
+    font-size: 14px;
+    font-weight: bold;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    color: white;
 }
 
 .notice-button-group button:first-child {
-    background-color: #00acae;
-    color: white;
+    background-color: #007bff;
 }
 
 .notice-button-group button:last-child {
-    background-color: #6c757d;
-    color: white;
+    background-color: #dc3545;
 }
 
-.notice-button-group button:hover {
-    opacity: 0.9;
+.notice-button-group button:first-child:hover {
+    background-color: #0056b3;
+}
+
+.notice-button-group button:last-child:hover {
+    background-color: #c82333;
 }
 
 .notice-button-group button:disabled {

@@ -36,10 +36,12 @@
     font-size: 23px !important;
     font-family: Noto Sans !important;
     color: white !important;
+    width: auto !important;
+    display: inline-block !important;
 }
 
 .list-button {
-    width: 100%;
+    width: auto !important;
     background-color: white !important;
     font-size: 20px !important;
     color: black !important;
@@ -48,10 +50,11 @@
     padding-top: 15px !important;
     padding-bottom: 15px !important;
     transition: transform 0.3s ease;
+    display: inline-block !important;
 }
 
 .list-button:hover {
-    transform: scale(1.1); /* 마우스 호버 시 10% 확대 */
+    transform: scale(1.1);
 }
 
 .trand_news {

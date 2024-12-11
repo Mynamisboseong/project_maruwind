@@ -112,13 +112,13 @@ function NoticeDetail() {
             </div>
 
             <div className="notice-actions">
-                <Link to="/notice" className="back-button">목록으로 돌아가기</Link>
-                {user && ( // 관리자 로그인 시에만 수정/삭제 버튼 표시
-                    <>
-                        <button onClick={handleEdit} className="edit-button">수정</button>
-                        <button onClick={handleDelete} className="delete-button">삭제</button>
-                    </>
-                )}
+                
+            {user && (
+        <>
+            <button className="notice-detail-edit-button" onClick={handleEdit}>게시글 수정</button>
+            <button className="notice-detail-delete-button" onClick={handleDelete}>게시글 삭제</button>
+        </>
+    )}
             </div>
         </div>
     );

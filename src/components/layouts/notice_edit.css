@@ -83,27 +83,44 @@ input[type="file"] {
 
 .button-group {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     gap: 10px;
     margin-top: 20px;
 }
 
-button {
+.button-group button:first-child {
     padding: 10px 20px;
     border: none;
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    background-color: #007bff;
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+.button-group button:last-child {
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    color: white;
+    background-color: #dc3545;
+    transition: background-color 0.3s ease;
+}
+
+.button-group button:first-child:hover {
     background-color: #0056b3;
 }
 
-button:disabled {
+.button-group button:last-child:hover {
+    background-color: #c82333;
+}
+
+.button-group button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
@@ -117,7 +134,8 @@ button:disabled {
 }
 
 .notice-edit-page h2 {
-    color: #007bff;
+    color: hsl(0, 0%, 0%);
+    font-weight: bold;
 }
 
 .notice-edit-page button[type="submit"] {

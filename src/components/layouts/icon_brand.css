@@ -1,106 +1,102 @@
 .navbar-brand img {
-    transition: transform 0.2s;
-  }
-  
-  .navbar-brand img:hover {
-    transform: scale(1.1); /* 호버 시 확대 */
-  }
+  transition: transform 0.2s;
+}
 
-  .icon-container {
-    margin-left: 0;  /* 왼쪽 여백 제거 */
-    padding-left: 10px;  /* 필요 시 약간의 padding */
-  }
-  
-  .navbar {
-    padding-left: 0;  /* 네비게이션 바의 패딩 제거 */
-  }
-  
-  .admin-login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 100px);  /* 네비게이션 바 높이 고려 */
-    background-color: #f8f9fa;
-    padding: 20px;
+.navbar-brand img:hover {
+  transform: scale(1.1);
+}
+
+.icon-container {
+  margin-left: 0;
+  padding-left: 10px;
+}
+
+.navbar {
+  padding-left: 0;
+}
+
+/* 관리자 로그인 페이지 스타일 */
+.admin-login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 100px);
+  background-color: #f8f9fa;
+  padding: 20px;
 }
 
 .admin-login-box {
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
 }
 
 .admin-login-box h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #333;
-    font-size: 24px;
-    font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-.input-group {
-    margin-bottom: 20px;
+.admin-login-input-group {
+  margin-bottom: 20px;
 }
 
-.input-group input {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
+.admin-login-input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
 }
 
-.input-group input:focus {
-    border-color: #00acae;
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(0, 172, 174, 0.2);
+.admin-login-input-group input:focus {
+  border-color: #00acae;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 172, 174, 0.2);
 }
 
-.error-message {
-    color: #dc3545;
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 14px;
-    padding: 10px;
-    background-color: rgba(220, 53, 69, 0.1);
-    border-radius: 5px;
+.admin-login-error {
+  color: #dc3545;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+  padding: 10px;
+  background-color: rgba(220, 53, 69, 0.1);
+  border-radius: 5px;
 }
 
-.admin-login-box button {
-    width: 100%;
-    padding: 12px;
-    background-color: #00acae;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.admin-login-box button:hover {
-    background-color: #008f91;
-}
-
-.admin-login-box button:active {
-    transform: translateY(1px);
-}
-
-/* 반응형 디자인 */
-@media (max-width: 480px) {
-    .admin-login-box {
-        padding: 20px;
-    }
-}
-
-.login-button {
+/* 관리자 로그인 페이지 버튼 */
+.admin-login-box .admin-login-submit-btn {
+  width: 100%;
+  padding: 12px;
   background-color: #00acae;
-  color: white !important;  /* Navbar.Brand의 기본 색상을 덮어쓰기 위해 !important 사용 */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-login-box .admin-login-submit-btn:hover {
+  background-color: #008f91;
+}
+
+.admin-login-box .admin-login-submit-btn:active {
+  transform: translateY(1px);
+}
+
+/* 네비게이션 바의 관리자 버튼들 */
+.navbar .admin-nav-login-btn {
+  background-color: #00acae;
+  color: white !important;
   border: none;
   border-radius: 10px;
   padding: 7px 12px;
@@ -110,18 +106,18 @@
   transition: background-color 0.3s ease;
 }
 
-.login-button:hover {
+.navbar .admin-nav-login-btn:hover {
   background-color: #008f91;
   text-decoration: none;
 }
 
-.login-info {
+.navbar .admin-welcome-text {
   margin-bottom: 5px;
   font-size: 17px;
   color: #333;
 }
 
-.logout-button {
+.navbar .admin-nav-logout-btn {
   background-color: #dc3545;
   color: white;
   border: none;
@@ -132,6 +128,12 @@
   transition: background-color 0.3s ease;
 }
 
-.logout-button:hover {
+.navbar .admin-nav-logout-btn:hover {
   background-color: #c82333;
+}
+
+@media (max-width: 480px) {
+  .admin-login-box {
+      padding: 20px;
+  }
 }

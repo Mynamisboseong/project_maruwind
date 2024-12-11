@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'SoundWave'; /* 폰트 이름 설정 */
-    src: url('../../assets/fonts/SoundWave.ttf') format('truetype'); /* TTF 파일 경로 */
+    font-family: 'SoundWave';
+    src: url('../../assets/fonts/SoundWave.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -22,27 +22,24 @@
 }
 
 .carousel-text {
-    position: absolute; /* 절대 위치 설정 */
-    top: 50%; /* 부모 요소의 50% 위치 */
-    left: 50%; /* 부모 요소의 50% 위치 */
-    transform: translate(-50%, -50%); /* 중앙 정렬을 위한 변환 */
-    color: white; /* 텍스트 색상 */
-    text-align: center; /* 텍스트 중앙 정렬 */
-    font-size: 24px; /* 텍스트 크기 조정 */
-    white-space: nowrap; /* 줄 바꿈 방지 */
-
-    /* 폰트 설정*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: white;
+    text-align: center;
+    font-size: 24px;
+    white-space: nowrap;
     font-family: 'Gowun Batang', sans-serif;
     font-size: 60px;
     text-align: center;
 }
 
 .carousel-contest-text {
-    position: absolute; /* 절대 위치 설정 */
-    top: 20%; /* 부모 요소의 50% 위치 */
-    left: 50%; /* 부모 요소의 50% 위치 */
-    transform: translate(-50%, -50%); /* 중앙 정렬을 위한 변환 */
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: white;
     font-family: 'Noto Sans';
     font-weight: 900;
@@ -51,20 +48,21 @@
 }
 
 .carousel-challenge-text {
-    position: absolute; /* 절대 위치 설정 */
-    top: 20%; /* 부모 요소의 50% 위치 */
-    left: 50%; /* 부모 요소의 50% 위치 */
-    transform: translate(-50%, -50%); /* 중앙 정렬을 위한 변환 */
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: white;
     font-family: 'Noto Sans';
     font-weight: 900;
     font-size: 40px;
     text-align: top;
 }
+
 .carousel-item img {
-    object-fit: contain; /* 이미지 비율 유지 */
-    width: 100%; /* 이미지 너비 */
-    height: 100%; /* 이미지 높이 */
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
 }
 
 .different-font {
@@ -80,19 +78,26 @@
     font-size: 65px;
 }
 
-.carousel-button {
-    position: absolute; /* 절대 위치 설정 */
-    top: 87%; /* 부모 요소의 50% 위치 */
-    left: 50%; /* 부모 요소의 50% 위치 */
-    transform: translate(-50%, -50%); /* 중앙 정렬을 위한 변환 */
-
-    margin: 15px; /*버튼사이의 공백*/
+/* 버튼 스타일 우선순위 높이기 */
+.carousel-button.btn.btn-lg {
+    position: absolute;
+    top: 87%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 15px;
     background-color: #00acae !important;
     border: none !important;
     border-radius: 30px !important;
     padding: 10px 30px !important;
     font-size: 25px !important;
-    font-family: Noto Sans !important;
+    font-family: 'Noto Sans' !important;
     color: white !important;
     transition: background-color 0.3s ease, transform 0.2s ease !important;
+    width: auto !important;
+    display: inline-block !important;
+}
+
+.carousel-button.btn.btn-lg:hover {
+    background-color: #008f91 !important;
+    transform: translate(-50%, -50%) translateY(-2px) !important;
 }

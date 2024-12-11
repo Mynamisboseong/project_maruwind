@@ -148,11 +148,11 @@ function NoticeEdit() {
                 </div>
 
                 <div className="button-group">
-                    <button onClick={handleUpdateNotice} disabled={isLoading}>
-                        {isLoading ? '수정 중...' : '수정'}
-                    </button>
-                    <button onClick={() => navigate(`/notice/${id}`)}>취소</button>
-                </div>
+    <button onClick={handleUpdateNotice} disabled={isLoading}>
+        {isLoading ? '수정 중...' : '수정'}
+    </button>
+    <button onClick={() => navigate(`/notice/${id}`)}>취소</button>
+</div>
             </div>
         </div>
     );

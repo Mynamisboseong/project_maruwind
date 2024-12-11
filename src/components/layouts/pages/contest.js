@@ -1,14 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { collection, onSnapshot } from 'firebase/firestore';
-import { db } from '../../../firebase'; // Firebase 초기화 경로
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { db } from '../../../firebase';
 import './contest.css';
 
 function Contest() {
-  const [contests, setContests] = useState([]); // Firestore 데이터 저장
-  const [filter, setFilter] = useState('전체'); // 필터 상태
-  const [loading, setLoading] = useState(true); // 로딩 상태 추가
-  const [searchQuery, setSearchQuery] = useState(''); // 검색 상태
+  const [contests, setContests] = useState([]);
+  const [filter, setFilter] = useState('전체');
+  const [loading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [user, setUser] = useState(null);
+  const auth = getAuth();
+
+  // 사용자 인증 상태 감시
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   // Firestore에서 데이터 가져오기
   useEffect(() => {
@@ -18,10 +30,10 @@ function Contest() {
         ...doc.data(),
       }));
       setContests(fetchedContests);
-      setLoading(false); // 로딩 완료
+      setLoading(false);
     });
 
-    return () => unsubscribe(); // 컴포넌트가 언마운트되면 구독 해제
+    return () => unsubscribe();
   }, []);
 
   // 필터링된 데이터
@@ -87,7 +99,7 @@ function Contest() {
       {/* 검색 및 글 작성하기 버튼 섹션 */}
       <div className="search-bar-container">
         <label className="search-label">
-        <span className="search-icon">검색🔍</span>
+          <span className="search-icon">검색🔍</span>
           <input
             type="text"
             className="search-input"
@@ -96,11 +108,13 @@ function Contest() {
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </label>
-        <div className="add-contest-button right-align">
-          <Link to="/contest/add">
-            <button>글 작성하기</button>
-          </Link>
-        </div>
+        {user && (
+          <div className="add-contest-button right-align">
+            <Link to="/contest/add">
+              <button>글 작성하기</button>
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* 공모전 리스트 */}
@@ -116,10 +130,10 @@ function Contest() {
           </thead>
           <tbody>
             {filteredContests.map((contest) => {
-              const isClosed = contest.status === '마감'; // 상태가 마감인지 확인
-              const isInProgress = contest.status.startsWith('D-'); // 상태가 진행중인지 확인
+              const isClosed = contest.status === '마감';
+              const isInProgress = contest.status.startsWith('D-');
               const isUrgent =
-                isInProgress && parseInt(contest.status.split('-')[1], 10) <= 7; // 마감임박인지 확인
+                isInProgress && parseInt(contest.status.split('-')[1], 10) <= 7;
 
               return (
                 <tr
