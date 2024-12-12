@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import './icon_brand.css';
@@ -32,10 +33,8 @@ function BrandExample() {
         <Navbar className="bg-body-tertiary">
             <Container fluid className="p-0 d-flex justify-content-between">
                 <div className="d-flex align-items-center icon-container">
-                    <Navbar.Brand
-                        href="http://localhost:3000/"
-                        className="me-3"
-                    >
+                    {/* Use Link for internal navigation */}
+                    <Navbar.Brand as={Link} to="/" className="me-3">
                         <img
                             src="/home.png"
                             width="24"
