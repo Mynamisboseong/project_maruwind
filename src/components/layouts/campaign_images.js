@@ -134,9 +134,6 @@ function ShapeExample() {
                 <Button className="campaign-button" size="lg">
                     공모전 보러가기
                 </Button>
-                <Button className="campaign-button" size="lg">
-                    캠페인 보러가기
-                </Button>
             </Container>
         </div>
     )

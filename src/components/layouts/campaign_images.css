@@ -73,21 +73,27 @@
 .campaign-button-container {
   margin-top: 30px;
   padding-bottom: 80px;
+  text-align: center; /* 버튼을 가운데 정렬 */
 }
 
+/* 버튼 스타일 */
 .campaign-button {
-  margin: 15px; /*버튼사이의 공백*/
   background-color: #00acae !important;
   border: none !important;
   border-radius: 30px !important;
-  padding: 10px 30px !important;
+  padding: 10px 20px !important; /* 양옆 패딩 조정 */
   font-size: 25px !important;
   font-family: Noto Sans !important;
   color: white !important;
   transition: background-color 0.3s ease, transform 0.2s ease !important;
+  display: inline-block; /* 버튼 크기를 컨테이너 기준으로 제한 */
+  max-width: 250px; /* 버튼의 최대 너비 제한 */
 }
 
+/* 마우스 오버 시 버튼 스타일 */
 .campaign-button:hover {
-  background-color: #007a8c !important; /* 마우스 오버 시 색상 변경 */
+  background-color: #007a8c !important;
   transform: scale(1.05) !important;
 }
+
+
