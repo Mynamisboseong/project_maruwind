@@ -11,20 +11,25 @@
 
 .itsok_banner_background {
     background-color: black;
+    width: 100%;
+    position: relative; /* 부모 요소를 기준으로 자식 위치 설정 */
 }
 
 .itsok_banner_img {
     position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* 가로 가운데 정렬 */
+    align-items: center; /* 세로 가운데 정렬 */
+    min-height: 300px; /* 최소 높이 설정 */
+    text-align: center;
 }
 
 .itsok_banner_text {
-    font-size: 75px;
+    font-size: 4vw; /* 반응형 폰트 크기 설정 */
     color: white;
     font-family: 'Black Han Sans';
-    position: absolute;
-    top: 30%;
-    left: 20%;
-    transform: translate(-50%, -50%);
+    position: absolute; /* 부모 요소 기준으로 위치 */
     text-align: center;
     white-space: nowrap;
     display: inline-block;
@@ -38,7 +43,7 @@
 }
 
 .itsok_banner_text_hightlight {
-    font-size: 90px;
+    font-size: 5vw; /* 반응형 폰트 크기 */
     color: #00acae;
     font-family: 'Black Han Sans';
 }

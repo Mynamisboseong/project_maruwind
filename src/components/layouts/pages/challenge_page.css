@@ -1,7 +1,21 @@
-/* 반응형 미디어 쿼리*/
+/* 반응형 미디어 쿼리 */
 @media (max-width: 768px) {
     .challengePage_main_component {
-        flex-direction: column; /* 화면이 작아지면 세로로 배치 */
+        flex-direction: column; /* 세로 배치 */
+        align-items: center; /* 요소 가운데 정렬 */
+        justify-content: center; /* 수직 가운데 정렬 */
+        padding: 20px; /* 상하 좌우 여백 */
+        gap: 20px; /* 간격 조정 */
+    }
+
+    .challengePage_main_image {
+        max-width: 90%; /* 부모 요소 크기의 90%로 제한 */
+        height: auto; /* 비율 유지 */
+    }
+
+    .challengePage_main_text {
+        width: 90%; /* 텍스트 영역도 90%로 제한 */
+        text-align: center; /* 텍스트 가운데 정렬 */
     }
 }
 
@@ -11,11 +25,12 @@
     font-family: Noto Sans;
 }
 
-.challengePage_banner_smalltitle{
+.challengePage_banner_smalltitle {
     padding-top: 70px;
     font-weight: 600;
     font-size: 35px;
 }
+
 .challengepage_banner_title {
     padding-bottom: 20px;
     font-weight: 800;
@@ -35,40 +50,40 @@
 
 /* 메인 컴포넌트 */
 .challengePage_main_component {
-    display: flex; /* Flexbox 활성화 */
-    align-items: center;
-    justify-content: space-between; /* 좌우로 배치 */
-    gap: 100px; /* 이미지와 텍스트 사이 간격 */
-    padding-left: 450px;
-    padding-right: 400px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    display: flex;
+    align-items: center; /* 세로축 가운데 정렬 */
+    justify-content: center; /* 가로축 가운데 정렬 */
+    gap: 50px; /* 이미지와 텍스트 사이 간격 */
+    padding: 50px 100px; /* 상하 50px, 좌우 100px 여백 추가 */
+    flex-wrap: wrap; /* 줄바꿈 활성화 */
 }
 
 .challengePage_main_image {
-    flex-shrink: 0; /* 이미지 크기 고정 */
-    max-width: 800px; /* 이미지 최대 너비 */
-    height: auto; /* 비율에 따라 높이 자동 조정 */
+    flex: 1; /* 비율 조정 */
+    max-width: 600px; /* 이미지 최대 크기 */
+    height: auto; /* 이미지 비율 유지 */
 }
 
 .challengePage_main_text {
-    flex: 1; /* 텍스트가 남은 공간을 채움 */
-    text-align: left; /* 텍스트 좌측 정렬 */
+    flex: 1; /* 남은 공간을 채움 */
+    max-width: 800px; /* 텍스트 최대 폭 제한 */
     font-family: Noto Sans;
+    text-align: left;
 }
 
+/* 타이틀 애니메이션 */
 .challengePage_main_title {
     font-weight: 900;
     font-size: 45px;
     color: #00acae;
-    opacity: 0; /* 투명 상태 */
-    transform: translateY(20px); /* 아래로 약간 이동 */
+    opacity: 0;
+    transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
 .challengePage_main_title.visible {
-    opacity: 1; /* 불투명 */
-    transform: translateY(0); /* 제자리로 이동 */
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .challengePage_main_subtext {
